@@ -1,78 +1,25 @@
-const chaptersMock = [
+const articlesMock = [
+  {
+    id: 0,
+    title: 'Introduction to Object Oriented Programming',
+    content: 'Object-oriented programming (OOP) is a programming paradigm that uses objects and their interactions to design and program applications. It is based on the principles of encapsulation, inheritance, and polymorphism.'
+  },
   {
     id: 1,
-    title: 'Chapter 1',
-    articles: []
+    title: 'Classes and Objects',
+    content: 'In object-oriented programming, a class is a blueprint for creating objects (a particular data structure), providing initial values for state (member variables or attributes), and implementations of behavior (member functions or methods). An object is an instance of a class.'
   },
   {
     id: 2,
-    title: 'Chapter 2',
-    articles: []
+    title: 'Inheritance and Polymorphism',
+    content: 'Inheritance is a mechanism in which one class inherits the properties and methods of another class. It allows for code reuse and the creation of hierarchical relationships between classes. Polymorphism is the ability of an object to take on many forms. It allows objects of different classes to be treated as objects of a common superclass.'
   },
+  // ... continue with the remaining articles ...
   {
-    id: 3,
-    title: 'Chapter 3',
-    articles: []
-  },
-  {
-    id: 4,
-    title: 'Chapter 4',
-    articles: []
-  },
-  {
-    id: 5,
-    title: 'Chapter 5',
-    articles: []
-  },
-  {
-    id: 6,
-    title: 'Chapter 6',
-    articles: []
-  },
-  {
-    id: 7,
-    title: 'Chapter 7',
-    articles: []
-  },
-  {
-    id: 8,
-    title: 'Chapter 8',
-    articles: []
-  },
-  {
-    id: 9,
-    title: 'Chapter 9',
-    articles: []
-  },
-  {
-    id: 10,
-    title: 'Chapter 10',
-    articles: []
-  },
-  {
-    id: 11,
-    title: 'Chapter 11',
-    articles: []
-  },
-  {
-    id: 12,
-    title: 'Chapter 12',
-    articles: []
+    id: 59,
+    title: 'Object-Oriented Music Composition',
+    content: 'Object-oriented music composition is a technique that uses object-oriented programming principles to create and manipulate musical structures. It allows for the creation of complex musical compositions by representing musical elements as objects and defining relationships between them.'
   }
 ];
-
-const articlesMock = chaptersMock.flatMap(chapter => {
-  const articles = [];
-  for (let i = 1; i <= 5; i++) {
-    const article = {
-      id: (chapter.id - 1) * 5 + i,
-      title: `Article ${i}`,
-      content: `This is the content of Article ${i} in ${chapter.title}`
-    };
-    chapter.articles.push(article);
-    articles.push(article);
-  }
-  return articles;
-});
 
 export default articlesMock;
