@@ -1,0 +1,7 @@
+node_modules
+.aider*
+.venv
+memory
+workspace/run.sh
+workspace/all_output.txt
+prompt
