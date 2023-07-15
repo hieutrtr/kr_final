@@ -1,6 +1,7 @@
 import React from 'react';
 import { Menu, MenuItem, SubMenu } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
+import './SideBar.css';
 
 function SideBar() {
   return (
