@@ -1,6 +1,6 @@
 import React from 'react';
-import TopMenu from '../TopMenu';
-import SideBar from '../SideBar';
+import TopMenu from './components/TopMenu';
+import SideBar from './components/SideBar';
 import ContentArea from './components/ContentArea';
 
 function App() {
