@@ -1,6 +1,7 @@
 const chaptersMock = [
   {
     id: 1,
+    title: 'Chapter 1',
     articles: [
       { id: 1, title: 'Introduction to Object Oriented Programming' },
       { id: 2, title: 'Classes and Objects' },
@@ -11,6 +12,7 @@ const chaptersMock = [
   },
   {
     id: 2,
+    title: 'Chapter 2',
     articles: [
       { id: 6, title: 'Design Principles' },
       { id: 7, title: 'Object-Oriented Analysis and Design' },
@@ -21,6 +23,7 @@ const chaptersMock = [
   },
   {
     id: 3,
+    title: 'Chapter 3',
     articles: [
       { id: 11, title: 'Object-Oriented Software Engineering' },
       { id: 12, title: 'Object-Oriented Database Management Systems' },
@@ -31,6 +34,7 @@ const chaptersMock = [
   },
   {
     id: 4,
+    title: 'Chapter 4',
     articles: [
       { id: 16, title: 'Object-Oriented User Interface Design' },
       { id: 17, title: 'Object-Oriented Web Development' },
@@ -41,6 +45,7 @@ const chaptersMock = [
   },
   {
     id: 5,
+    title: 'Chapter 5',
     articles: [
       { id: 21, title: 'Object-Oriented Cloud Computing' },
       { id: 22, title: 'Object-Oriented Internet of Things' },
@@ -51,6 +56,7 @@ const chaptersMock = [
   },
   {
     id: 6,
+    title: 'Chapter 6',
     articles: [
       { id: 26, title: 'Object-Oriented Robotics' },
       { id: 27, title: 'Object-Oriented Virtual Reality' },
@@ -61,6 +67,7 @@ const chaptersMock = [
   },
   {
     id: 7,
+    title: 'Chapter 7',
     articles: [
       { id: 31, title: 'Object-Oriented Natural Language Processing' },
       { id: 32, title: 'Object-Oriented Computer Vision' },
@@ -71,6 +78,7 @@ const chaptersMock = [
   },
   {
     id: 8,
+    title: 'Chapter 8',
     articles: [
       { id: 36, title: 'Object-Oriented Genetic Algorithms' },
       { id: 37, title: 'Object-Oriented Evolutionary Computation' },
@@ -81,6 +89,7 @@ const chaptersMock = [
   },
   {
     id: 9,
+    title: 'Chapter 9',
     articles: [
       { id: 41, title: 'Object-Oriented Robotics Process Automation' },
       { id: 42, title: 'Object-Oriented Internet of Robotic Things' },
@@ -91,6 +100,7 @@ const chaptersMock = [
   },
   {
     id: 10,
+    title: 'Chapter 10',
     articles: [
       { id: 46, title: 'Object-Oriented Virtual Assistants' },
       { id: 47, title: 'Object-Oriented Chatbots' },
@@ -101,6 +111,7 @@ const chaptersMock = [
   },
   {
     id: 11,
+    title: 'Chapter 11',
     articles: [
       { id: 51, title: 'Object-Oriented Computer Graphics' },
       { id: 52, title: 'Object-Oriented Game Development' },
@@ -111,6 +122,7 @@ const chaptersMock = [
   },
   {
     id: 12,
+    title: 'Chapter 12',
     articles: [
       { id: 56, title: 'Object-Oriented Music Technology' },
       { id: 57, title: 'Object-Oriented Sound Design' },
