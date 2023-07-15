@@ -25,3 +25,18 @@
 .expanded {
   transform: rotate(180deg);
 }
+
+.menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background-color: #ddd;
+}
