@@ -67,7 +67,7 @@ const articlesMock = chaptersMock.flatMap(chapter => {
     const article = {
       id: (chapter.id - 1) * 5 + i,
       title: `Article ${i}`,
-      content: `This is the content of Article ${i}`
+      content: `This is the content of Article ${i} in ${chapter.title}`
     };
     chapter.articles.push(article);
     articles.push(article);
