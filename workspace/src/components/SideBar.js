@@ -1,27 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Menu, MenuItem, SubMenu } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
+import './SideBar.css';
 
 function SideBar() {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const handleExpand = () => {
-    setIsExpanded(!isExpanded);
-  };
-
   return (
     <aside className="sidebar">
-      <div className="sidebar-header" onClick={handleExpand}>
-        <span>Chapters</span>
-        <span className={`arrow ${isExpanded ? 'expanded' : ''}`}></span>
-      </div>
-      {isExpanded && (
-        <Menu menuButton={<div></div>}>
-          <MenuItem>Chapter 1</MenuItem>
-          <MenuItem>Chapter 2</MenuItem>
-          <MenuItem>Chapter 3</MenuItem>
-        </Menu>
-      )}
+      <Menu menuButton={<button>Chapters</button>}>
+        <MenuItem>Chapter 1</MenuItem>
+        <MenuItem>Chapter 2</MenuItem>
+        <MenuItem>Chapter 3</MenuItem>
+      </Menu>
     </aside>
   );
 }
