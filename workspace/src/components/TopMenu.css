@@ -1,1 +1,14 @@
-/* Add your CSS styles for TopMenu component here */
+.top-menu {
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+.top-menu a {
+  color: #333;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.top-menu a:hover {
+  color: #666;
+}

@@ -1,1 +1,16 @@
-/* Add your CSS styles for SideBar component here */
+.sidebar {
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+.sidebar .react-menu {
+  width: 200px;
+}
+
+.sidebar .react-menu__item {
+  padding: 5px 10px;
+}
+
+.sidebar .react-menu__item--active {
+  background-color: #ddd;
+}
