@@ -5,16 +5,15 @@ function SideBar() {
   return (
     <Sidebar>
       <Menu iconShape="square">
-        <SubMenu label="Chapters">
-          <MenuItem>Chapter 1</MenuItem>
-          <MenuItem>Chapter 2</MenuItem>
-          <MenuItem>Chapter 3</MenuItem>
-        </SubMenu>
-        <SubMenu label="Articles">
-          <MenuItem>Article 1</MenuItem>
-          <MenuItem>Article 2</MenuItem>
-          <MenuItem>Article 3</MenuItem>
-        </SubMenu>
+        {Array.from({ length: 12 }, (_, index) => (
+          <SubMenu key={`chapter-${index + 1}`} label={`Chapter ${index + 1}`}>
+            {Array.from({ length: 3 }, (_, articleIndex) => (
+              <MenuItem key={`article-${index + 1}-${articleIndex + 1}`}>
+                Article {articleIndex + 1}
+              </MenuItem>
+            ))}
+          </SubMenu>
+        ))}
       </Menu>
     </Sidebar>
   );
