@@ -1,0 +1,42 @@
+.sidebar {
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sidebar-header span {
+  margin-right: 5px;
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 5px 0 5px;
+  border-color: #333 transparent transparent transparent;
+  transition: transform 0.3s;
+}
+
+.expanded {
+  transform: rotate(180deg);
+}
+
+.menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background-color: #ddd;
+}
