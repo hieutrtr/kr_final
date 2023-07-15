@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import chaptersMock from '../data/Mocks';
+import articlesMock from '../data/ArticlesMock'; // Add import statement for articlesMock
 import './SideBar.css'; // Add import statement for SideBar.css
 
 function SideBar() {
