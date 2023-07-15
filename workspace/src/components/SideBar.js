@@ -6,7 +6,7 @@ import './SideBar.css';
 function SideBar() {
   return (
     <aside className="sidebar">
-      <Menu>
+      <Menu menuButton={<button>Menu</button>}>
         <SubMenu label="Chapters">
           <MenuItem>Chapter 1</MenuItem>
           <MenuItem>Chapter 2</MenuItem>
