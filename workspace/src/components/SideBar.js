@@ -13,7 +13,7 @@ function SideBar() {
     <Sidebar>
       <Menu iconShape="square">
         {chapters.map(chapter => (
-          <SubMenu key={`chapter-${chapter.id}`} label={`Chapter ${chapter.id}`}>
+          <SubMenu title={`${chapter.title}`} key={`chapter-${chapter.id}`} label={`Chapter ${chapter.id}: ${chapter.title}`}>
             {chapter.articles.map(article => (
               <MenuItem key={`article-${chapter.id}-${article.id}`}>
                 {article.title}
