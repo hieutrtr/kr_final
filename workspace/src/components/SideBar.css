@@ -3,14 +3,25 @@
   padding: 10px;
 }
 
-.sidebar .react-menu {
-  width: 200px;
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
-.sidebar .react-menu__item {
-  padding: 5px 10px;
+.sidebar-header span {
+  margin-right: 5px;
 }
 
-.sidebar .react-menu__item--active {
-  background-color: #ddd;
+.arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 5px 0 5px;
+  border-color: #333 transparent transparent transparent;
+  transition: transform 0.3s;
+}
+
+.expanded {
+  transform: rotate(180deg);
 }
