@@ -12,8 +12,8 @@ function SideBar() {
 
   return (
     <aside className="sidebar">
-      <Menu menuButton={<button onClick={handleExpand}>Menu</button>}>
-        <SubMenu label="Chapters" disabled={!isExpanded}>
+      <Menu menuButton={<button onClick={handleExpand}>Menu</button>} open={isExpanded}>
+        <SubMenu label="Chapters">
           <MenuItem>Chapter 1</MenuItem>
           <MenuItem>Chapter 2</MenuItem>
           <MenuItem>Chapter 3</MenuItem>
