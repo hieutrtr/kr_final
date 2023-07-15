@@ -16,7 +16,7 @@ function SideBar() {
         <span className={`arrow ${isExpanded ? 'expanded' : ''}`}></span>
       </div>
       {isExpanded && (
-        <Menu>
+        <Menu menuButton={<div></div>}>
           <MenuItem>Chapter 1</MenuItem>
           <MenuItem>Chapter 2</MenuItem>
           <MenuItem>Chapter 3</MenuItem>
