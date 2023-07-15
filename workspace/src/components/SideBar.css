@@ -5,3 +5,9 @@
   text-overflow: ellipsis;
   width: 100%;
 }
+
+/* Add the following styles for the selected article */
+.selected-article {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
