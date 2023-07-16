@@ -4,7 +4,7 @@ import articlesMock from '../data/ArticlesMock';
 
 function ContentArea({ selectedChapterId, selectedArticleId, selectedCategory }) {
   const selectedArticle = articlesMock.find(article => article.id === selectedArticleId && (selectedCategory === "" || article.category === selectedCategory));
-  const featuredArticle = articlesMock.find(article => article.featured);
+  const featuredArticles = articlesMock.filter(article => article.featured);
 
   return (
     <main className="content-area">
@@ -15,10 +15,14 @@ function ContentArea({ selectedChapterId, selectedArticleId, selectedCategory })
         </div>
       ) : (
         <div>
-          {featuredArticle ? (
+          {featuredArticles.length > 0 ? (
             <div>
-              <h2>{featuredArticle.title}</h2>
-              <div dangerouslySetInnerHTML={{ __html: featuredArticle.content }}></div>
+              {featuredArticles.map(article => (
+                <div key={article.id}>
+                  <h2>{article.title}</h2>
+                  <div dangerouslySetInnerHTML={{ __html: article.content }}></div>
+                </div>
+              ))}
             </div>
           ) : (
             <div>
