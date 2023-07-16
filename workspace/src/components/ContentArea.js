@@ -18,7 +18,7 @@ function ContentArea({ selectedChapterId, selectedArticleId, selectedCategory, o
           {featuredArticles.length > 0 ? (
             <div>
               {featuredArticles.map(article => (
-                <div key={article.id} onClick={() => onArticleSelect(article.chapter, article.id)}>
+                <div key={article.id} onClick={() => onArticleSelect(article.chapter, article.id)} className="featured-article">
                   <h2>{article.title}</h2>
                   <div dangerouslySetInnerHTML={{ __html: article.content.substring(0, 200) }}></div>
                   <p>Click to read more</p>

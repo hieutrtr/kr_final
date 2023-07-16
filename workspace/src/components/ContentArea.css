@@ -1,3 +1,15 @@
 .content-area {
+  padding: 20px;
+}
+
+.featured-article {
+  margin-bottom: 20px;
   padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.featured-article:hover {
+  background-color: #e0e0e0;
 }
