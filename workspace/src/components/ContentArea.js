@@ -16,7 +16,7 @@ function ContentArea({ selectedChapterId, selectedArticleId, selectedCategory, o
       ) : (
         <div>
           {featuredArticles.length > 0 ? (
-            <div className="featured-articles">
+            <div className="featured-articles featired-container">
               {featuredArticles.map((article, index) => (
                 <div key={article.id} onClick={() => onArticleSelect(article.chapter, article.id)} className={`featured-article ${index % 2 === 0 ? 'even' : 'odd'}`}>
                   <h2>{article.title}</h2>

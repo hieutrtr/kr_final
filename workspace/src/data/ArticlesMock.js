@@ -12,7 +12,8 @@ const articlesMock = [
     "chapter": "Introduction to OOP",
     "title": "Key Concepts of OOP",
     "content": "<p>Object-Oriented Programming (OOP) is based on several key concepts:</p><ol><li><strong>Classes and Objects:</strong> Classes are the blueprints that define the structure and behavior of objects. Objects are instances of classes that represent specific entities or things.</li><li><strong>Inheritance:</strong> Inheritance allows classes to inherit properties and behaviors from parent classes, forming a hierarchy of classes. It promotes code reuse and facilitates the creation of specialized classes.</li><li><strong>Encapsulation:</strong> Encapsulation refers to the bundling of data and methods within a class, hiding internal details and exposing only necessary interfaces. It protects data integrity and promotes modular design.</li><li><strong>Polymorphism:</strong> Polymorphism allows objects of different types to be treated as objects of a common superclass. It enables flexibility in handling different types of objects through method overriding and method overloading.</li><li><strong>Abstraction:</strong> Abstraction focuses on capturing essential properties and behaviors of objects while hiding unnecessary implementation details. It simplifies complex systems and promotes a higher-level perspective.</li></ol>",
-    "category": "concept"
+    "category": "concept",
+    "featured": true
   },
   {
     "id": 2,
@@ -27,7 +28,8 @@ const articlesMock = [
     "chapter": "Inheritance",
     "title": "Understanding Inheritance in OOP",
     "content": "<p>Inheritance is a fundamental concept in Object-Oriented Programming (OOP) that allows classes to inherit properties and behaviors from parent classes. It enables code reuse and promotes the creation of specialized classes based on existing ones.</p><p>Inheritance establishes a hierarchical relationship between classes, where a child class (also known as a derived class or subclass) can inherit attributes and methods from a parent class (also known as a base class or superclass). The child class can then extend or modify the inherited features and add new ones specific to its own requirements.</p><p>By using inheritance, developers can create a more organized and modular codebase. Common properties and behaviors can be defined in a base class and shared among multiple derived classes, reducing redundancy and promoting code maintenance. Inheritance also supports the principle of polymorphism, allowing objects of different classes to be treated interchangeably.</p>",
-    "category": "definition"
+    "category": "definition",
+    "featured": true
   },
   {
     "id": 4,
@@ -48,7 +50,8 @@ const articlesMock = [
     "chapter": "Polymorphism",
     "title": "Polymorphism Explained",
     "content": "<p>Polymorphism is a core concept in Object-Oriented Programming (OOP) that allows objects of different types to be treated as objects of a common superclass. It provides flexibility and extensibility in handling different types of objects through a unified interface.</p><p>In OOP, polymorphism enables a single interface (such as a method or function) to be used for objects of different classes. This means that objects can exhibit different behaviors based on their actual types or characteristics. Polymorphism is achieved through method overriding and method overloading.</p><p>Method overriding occurs when a subclass provides its own implementation of a method that is already defined in its parent class. The method in the subclass overrides the behavior of the same method in the parent class, allowing the subclass to provide a specialized implementation.</p><p>Method overloading, on the other hand, involves defining multiple methods in a class with the same name but different parameters. The appropriate method is called based on the number, type, and order of the arguments provided during the method invocation. This allows flexibility in accepting different inputs and performing different actions based on the provided arguments.</p><p>Polymorphism promotes code reuse, modularity, and flexibility. It allows developers to write more generic and scalable code that can handle a variety of objects without the need for extensive conditional logic or type checking.</p>",
-    "category": "definition"
+    "category": "definition",
+    "featured": true
   },
   {
     "id": 7,
@@ -62,7 +65,8 @@ const articlesMock = [
     "chapter": "Polymorphism",
     "title": "Polymorphism Exercises",
     "content": "<p>Exercise 1: Create a base class called 'Shape' with a method called 'calculateArea()'. Derive classes such as 'Rectangle', 'Circle', and 'Triangle' from the 'Shape' class and override the 'calculateArea()' method in each subclass to provide the specific area calculation logic for each shape.</p><p>Exercise 2: Implement a class hierarchy for a drawing application. Create a base class called 'Shape' with methods like 'draw()' and 'resize()'. Derive classes such as 'Rectangle', 'Circle', and 'Line' from the 'Shape' class and provide specialized implementations for the 'draw()' and 'resize()' methods in each subclass.</p><p>Exercise 3: Develop a payroll system using polymorphism. Create a base class called 'Employee' with attributes like 'name' and 'salary'. Derive classes such as 'Manager', 'Engineer', and 'Salesperson' from the 'Employee' class. Implement a method called 'calculateBonus()' in each subclass to calculate the bonus amount based on specific rules for each employee category.</p>",
-    "category": "exercise"
+    "category": "exercise",
+    "featured": true
   },
   {
     "id": 9,
