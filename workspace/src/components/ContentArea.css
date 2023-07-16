@@ -13,3 +13,32 @@
 .featured-article:hover {
   background-color: #e0e0e0;
 }
+
+.article-content {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.article-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.article-body {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.read-more-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.read-more-link:hover {
+  text-decoration: underline;
+}
