@@ -4,8 +4,8 @@ import SideBar from './components/SideBar';
 import ContentArea from './components/ContentArea';
 
 function App() {
-  const [selectedChapterId, setSelectedChapterId] = useState(0);
-  const [selectedArticleId, setSelectedArticleId] = useState(0);
+  const [selectedChapterId, setSelectedChapterId] = useState(null);
+  const [selectedArticleId, setSelectedArticleId] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [firstVisit, setFirstVisit] = useState(true);
 
