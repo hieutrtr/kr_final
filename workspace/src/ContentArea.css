@@ -16,3 +16,8 @@
 .featured-article.odd {
   background-color: #e6e6e6;
 }
+
+.read-more {
+  color: blue;
+  cursor: pointer;
+}
