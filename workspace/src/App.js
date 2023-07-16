@@ -16,7 +16,7 @@ function App() {
     <div className="app">
       <TopMenu />
       <div className="main-content">
-        <SideBar onArticleSelect={handleArticleSelect} />
+        <SideBar onArticleSelect={handleArticleSelect} /> {/* Pass the handleArticleSelect function as a prop */}
         <ContentArea selectedChapterId={selectedChapterId} selectedArticleId={selectedArticleId} />
       </div>
     </div>

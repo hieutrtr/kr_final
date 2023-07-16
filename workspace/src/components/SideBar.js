@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import chaptersMock from '../data/ChaptersMock';
-import './SideBar.css'; // Add import statement for SideBar.css
+import './SideBar.css';
 
-function SideBar({ onArticleSelect }) { // Add onArticleSelect prop
+function SideBar({ onArticleSelect }) {
   const [chapters, setChapters] = useState([]);
 
   useEffect(() => {
