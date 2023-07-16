@@ -1,12 +1,10 @@
 // Add the following import statement at the top
 import { useState } from 'react';
 import { Sidebar, Menu, SubMenu, MenuItem } from 'react-pro-sidebar';
-import 'react-pro-sidebar/dist/css/styles.css';
 import chaptersMock from '../data/ChaptersMock';
 
 function SideBar({ onArticleSelect, onCategorySelect }) {
-  const [chapters, setChapters] = useState([]);
-  const [filteredChapters, setFilteredChapters] = useState([]);
+  const [filteredChapters, setFilteredChapters] = useState(chaptersMock);
   const [selectedCategory, setSelectedCategory] = useState('');
 
   // ...
@@ -16,11 +14,13 @@ function SideBar({ onArticleSelect, onCategorySelect }) {
     onCategorySelect(category);
 
     // Filter the chapters based on the selected category
-    if (category) {
-      const filteredChapters = chaptersMock.filter(chapter =>
-        chapter.articles.some(article => article.category === category)
+    if (category !== '') {
+      const chapters = chaptersMock.map(chap => {
+        const newArticles = chap.articles.filter(article => article.category === category)
+        return { ...chap, articles: newArticles };
+      }
       );
-      setFilteredChapters(filteredChapters);
+      setFilteredChapters(chapters);
     } else {
       setFilteredChapters(chaptersMock);
     }
