@@ -1,0 +1,18 @@
+.content-area {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+
+.featured-article {
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.featured-article.even {
+  background-color: #f2f2f2;
+}
+
+.featured-article.odd {
+  background-color: #e6e6e6;
+}
