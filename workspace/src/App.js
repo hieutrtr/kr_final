@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import TopMenu from './components/TopMenu';
 import SideBar from './components/SideBar';
 import ContentArea from './components/ContentArea';
-import './App.css';
 
 function App() {
   const [selectedChapterId, setSelectedChapterId] = useState(null);
