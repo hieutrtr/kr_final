@@ -9,9 +9,9 @@ function ContentArea({ selectedChapterId, selectedArticleId, selectedCategory, o
   return (
     <main className="content-area">
       {selectedArticle ? (
-        <div>
-          <h2>{selectedArticle.title}</h2>
-          <div dangerouslySetInnerHTML={{ __html: selectedArticle.content }}></div>
+        <div className="article-content">
+          <h2 className="article-title">{selectedArticle.title}</h2>
+          <div className="article-body" dangerouslySetInnerHTML={{ __html: selectedArticle.content }}></div>
         </div>
       ) : (
         <div>

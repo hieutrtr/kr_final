@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Sidebar, Menu, SubMenu, MenuItem } from 'react-pro-sidebar';
 import chaptersMock from '../data/ChaptersMock';
 import articlesMock from '../data/ArticlesMock';
+import './SideBar.css';
 
 function SideBar({ onArticleSelect, onCategorySelect }) {
   const [filteredChapters, setFilteredChapters] = useState(chaptersMock);
@@ -46,7 +47,7 @@ function SideBar({ onArticleSelect, onCategorySelect }) {
   };
 
   return (
-    <Sidebar>
+    <Sidebar className="sidebar">
       <div className="category-filter">
         <label htmlFor="category-select">Categories:</label>
         <select id="category-select" value={selectedCategory} onChange={(e) => handleCategorySelect(e.target.value)}>
