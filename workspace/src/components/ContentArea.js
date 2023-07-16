@@ -2,7 +2,7 @@ import React from 'react';
 import './ContentArea.css';
 import articlesMock from '../data/ArticlesMock';
 
-function ContentArea({ selectedChapterId, selectedArticleId }) {
+function ContentArea({ selectedChapterId, selectedArticleId, selectedCategory }) {
   const selectedArticle = articlesMock.find(article => article.id === selectedArticleId);
 
   return (
@@ -10,7 +10,7 @@ function ContentArea({ selectedChapterId, selectedArticleId }) {
       {selectedArticle && (
         <div>
           <h2>{selectedArticle.title}</h2>
-          <p>{selectedArticle.content}</p>
+          <div dangerouslySetInnerHTML={{ __html: selectedArticle.content }}></div>
         </div>
       )}
     </main>
