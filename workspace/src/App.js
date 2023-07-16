@@ -32,7 +32,7 @@ function App() {
           onArticleSelect={(chapterId, articleId) => handleArticleSelect(chapterId, articleId)}
           onCategorySelect={(category) => handleCategorySelect(category)}
         />
-        <ContentArea selectedChapterId={selectedChapterId} selectedArticleId={selectedArticleId} selectedCategory={selectedCategory} firstVisit={firstVisit} />
+        <ContentArea selectedChapterId={selectedChapterId} selectedArticleId={selectedArticleId} selectedCategory={selectedCategory} firstVisit={firstVisit} onArticleSelect={(chapterId, articleId) => handleArticleSelect(chapterId, articleId)} />
       </div>
     </div>
   );

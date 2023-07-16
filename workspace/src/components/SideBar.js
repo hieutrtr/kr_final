@@ -1,7 +1,7 @@
-// Add the following import statement at the top
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Sidebar, Menu, SubMenu, MenuItem } from 'react-pro-sidebar';
 import chaptersMock from '../data/ChaptersMock';
+import articlesMock from '../data/ArticlesMock';
 
 function SideBar({ onArticleSelect, onCategorySelect }) {
   const [filteredChapters, setFilteredChapters] = useState(chaptersMock);
