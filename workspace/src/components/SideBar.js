@@ -31,11 +31,17 @@ function SideBar({ onArticleSelect, onCategorySelect }) {
 
   return (
     <Sidebar>
+      <div className="category-filter">
+        <label htmlFor="category-select">Categories:</label>
+        <select id="category-select" value={selectedCategory} onChange={(e) => handleCategorySelect(e.target.value)}>
+          <option value="">All Categories</option>
+          <option value="definition">Definition</option>
+          <option value="concept">Concept</option>
+          <option value="exercise">Exercise</option>
+        </select>
+      </div>
       <Menu iconShape="square">
-        <MenuItem onClick={() => handleCategorySelect('')}>
-          All Categories
-        </MenuItem>
-        {chapters.map(chapter => (
+        {filteredChapters.map(chapter => (
           <SubMenu title={`${chapter.title}`} key={`chapter-${chapter.id}`} label={`Chapter ${chapter.id}: ${chapter.title}`}>
             {chapter.articles.map(article => (
               <MenuItem key={`article-${chapter.id}-${article.id}`} onClick={() => onArticleSelect(chapter.id, article.id)}>
