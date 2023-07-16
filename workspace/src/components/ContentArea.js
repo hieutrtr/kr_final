@@ -3,7 +3,7 @@ import './ContentArea.css';
 import articlesMock from '../data/ArticlesMock';
 
 function ContentArea({ selectedChapterId, selectedArticleId }) {
-  const selectedArticle = articlesMock.find(article => article.chapterId === selectedChapterId && article.id === selectedArticleId);
+  const selectedArticle = articlesMock.find(article => article.id === selectedArticleId);
 
   return (
     <main className="content-area">
