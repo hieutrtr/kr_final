@@ -12,3 +12,16 @@
 .top-menu a:hover {
   color: #666;
 }
+
+/* Add the following styles for the search box */
+.search-box {
+  margin-top: 10px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
