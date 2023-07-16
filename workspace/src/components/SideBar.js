@@ -6,27 +6,44 @@ import chaptersMock from '../data/ChaptersMock';
 function SideBar({ onArticleSelect, onCategorySelect }) {
   const [filteredChapters, setFilteredChapters] = useState(chaptersMock);
   const [selectedCategory, setSelectedCategory] = useState('');
-
-  // ...
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
     onCategorySelect(category);
 
-    // Filter the chapters based on the selected category
-    if (category !== '') {
-      const chapters = chaptersMock.map(chap => {
-        const newArticles = chap.articles.filter(article => article.category === category)
-        return { ...chap, articles: newArticles };
-      }
-      );
-      setFilteredChapters(chapters);
-    } else {
-      setFilteredChapters(chaptersMock);
-    }
+    // Filter the chapters based on the selected category and search query
+    filterChapters(category, searchQuery);
   };
 
-  // ...
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+
+    // Filter the chapters based on the search query
+    filterChapters(selectedCategory, query);
+  };
+
+  const filterChapters = (category, query) => {
+    let filteredChapters = chaptersMock;
+
+    // Filter by category
+    if (category !== '') {
+      filteredChapters = filteredChapters.map(chap => {
+        const newArticles = chap.articles.filter(article => article.category === category);
+        return { ...chap, articles: newArticles };
+      });
+    }
+
+    // Filter by search query
+    if (query !== '') {
+      filteredChapters = filteredChapters.map(chap => {
+        const newArticles = chap.articles.filter(article => article.title.toLowerCase().includes(query.toLowerCase()));
+        return { ...chap, articles: newArticles };
+      });
+    }
+
+    setFilteredChapters(filteredChapters);
+  };
 
   return (
     <Sidebar>
@@ -38,6 +55,9 @@ function SideBar({ onArticleSelect, onCategorySelect }) {
           <option value="concept">Concept</option>
           <option value="exercise">Exercise</option>
         </select>
+      </div>
+      <div className="search-box">
+        <input type="text" placeholder="Search by title" value={searchQuery} onChange={(e) => handleSearch(e.target.value)} />
       </div>
       <Menu iconShape="square">
         {filteredChapters.map(chapter => (
