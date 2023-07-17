@@ -37,7 +37,6 @@ function App() {
           <div className="content-area">
             <Routes>
               <Route path="/chapters" element={<ContentArea
-                selectedChapterId={selectedChapterId}
                 selectedArticleId={selectedArticleId}
                 selectedCategory={selectedCategory}
                 firstVisit={firstVisit}
