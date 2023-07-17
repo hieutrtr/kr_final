@@ -1,3 +1,5 @@
+// entire file content ...
+
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import TopMenu from './components/TopMenu';
@@ -8,10 +10,10 @@ function App() {
   const [selectedChapterId, setSelectedChapterId] = useState(null);
   const [selectedArticleId, setSelectedArticleId] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('');
-  const [selectedSectionType, setSelectedSectionType] = useState('');
+  const [selectedSectionType, setSelectedSectionType] = useState('chapter');
 
   useEffect(() => {
-    setSelectedSectionType('');
+    setSelectedSectionType('chapter');
   }, []);
 
   const handleArticleSelect = (chapterId, articleId) => {
@@ -53,8 +55,16 @@ function App() {
                 selectedCategory={selectedCategory}
                 onArticleSelect={(chapterId, articleId) => handleArticleSelect(chapterId, articleId)}
               />} />
-              <Route path="/concept" element={<h1>Concept Page</h1>} />
-              <Route path="/exercise" element={<h1>Exercise Page</h1>} />
+              <Route path="/concept" element={<ContentArea
+                selectedArticleId={selectedArticleId}
+                selectedCategory={selectedCategory}
+                onArticleSelect={(chapterId, articleId) => handleArticleSelect(chapterId, articleId)}
+              />} />
+              <Route path="/exercise" element={<ContentArea
+                selectedArticleId={selectedArticleId}
+                selectedCategory={selectedCategory}
+                onArticleSelect={(chapterId, articleId) => handleArticleSelect(chapterId, articleId)}
+              />} />
               <Route path="/about" element={<h1>About Page</h1>} />
             </Routes>
           </div>

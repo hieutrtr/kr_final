@@ -3,7 +3,7 @@ import { Sidebar, Menu, SubMenu, MenuItem } from 'react-pro-sidebar';
 import sectionsMock from '../data/SectionsMock';
 import './SideBar.css';
 
-function SideBar({ onArticleSelect, onCategorySelect }) {
+function SideBar({ onArticleSelect, onCategorySelect, selectedSectionType }) {
   const [filteredSections, setFilteredSections] = useState(sectionsMock);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
@@ -61,7 +61,7 @@ function SideBar({ onArticleSelect, onCategorySelect }) {
       </div>
       <Menu iconShape="square">
         {filteredSections.map(section => (
-          section.type === "chapter" && (
+          section.type === selectedSectionType && (
             <SubMenu title={`${section.title}`} key={`section-${section.id}`} label={`Section ${section.id}: ${section.title}`}>
               {section.articles.map(article => (
                 <MenuItem key={`article-${section.id}-${article.id}`} onClick={() => onArticleSelect(section.id, article.id)}>
