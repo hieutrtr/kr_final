@@ -4,6 +4,7 @@ const articlesMock = [
     "chapter": 1,
     "title": "What is Inheritance?",
     "category": "definition",
+    "featured": true,
     "content": "<p>Inheritance is a fundamental concept in object-oriented programming (OOP) that allows classes to inherit properties and methods from other classes. It enables code reuse and promotes the creation of hierarchical relationships between classes.</p>"
   },
   {
@@ -11,6 +12,7 @@ const articlesMock = [
     "chapter": 1,
     "title": "Types of Inheritance",
     "category": "concept",
+    "featured": true,
     "content": "<p>There are several types of inheritance in OOP, including single inheritance, multiple inheritance, multilevel inheritance, and hierarchical inheritance. Each type has its own characteristics and use cases.</p>"
   },
   {
@@ -18,11 +20,13 @@ const articlesMock = [
     "chapter": 1,
     "title": "Benefits and Drawbacks of Inheritance",
     "category": "concept",
+    "featured": true,
     "content": "<p>Inheritance offers several benefits, such as code reuse, extensibility, and modularity. However, it can also lead to tight coupling between classes and potential issues with the inheritance hierarchy.</p>"
   },
   {
     "id": 3,
     "chapter": 1,
+    "featured": true,
     "title": "Examples of Inheritance in OOP",
     "category": "example",
     "content": "<p>Examples of inheritance in OOP can be found in various domains, such as software development, game development, and modeling real-world entities. For instance, a software application may have a base class for different types of users, with subclasses for specific roles like admin, customer, and employee.</p>"
