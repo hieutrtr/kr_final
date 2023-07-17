@@ -1,3 +1,5 @@
+// entire file content ...
+
 const sectionsMock = 
   [
     {
@@ -375,3 +377,5 @@ const sectionsMock =
   ];
 
 export default sectionsMock;
+
+// ... rest of the file ...

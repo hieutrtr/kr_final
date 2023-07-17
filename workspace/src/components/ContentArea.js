@@ -1,9 +1,10 @@
-// Change the component name from ContentArea to ChapterContentArea
+// entire file content ...
+
 import React from 'react';
 import './ContentArea.css';
 import articlesMock from '../data/ArticlesMock';
 
-function ChapterContentArea({ selectedArticleId, selectedCategory, onArticleSelect }) {
+function ContentArea({ selectedArticleId, selectedCategory, onArticleSelect, selectedSectionType }) {
   const selectedArticle = articlesMock.find(article => article.id === selectedArticleId && (selectedCategory === "" || article.category === selectedCategory));
   const featuredArticles = articlesMock.filter(article => article.featured);
 
@@ -38,4 +39,6 @@ function ChapterContentArea({ selectedArticleId, selectedCategory, onArticleSele
   );
 }
 
-export default ChapterContentArea;
+export default ContentArea;
+
+// ... rest of the file ...

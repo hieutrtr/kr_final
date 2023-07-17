@@ -1,3 +1,5 @@
+// entire file content ...
+
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import TopMenu from './components/TopMenu';
@@ -8,10 +10,10 @@ function App() {
   const [selectedChapterId, setSelectedChapterId] = useState(null);
   const [selectedArticleId, setSelectedArticleId] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('');
-  const [firstVisit, setFirstVisit] = useState(true);
+  const [selectedSectionType, setSelectedSectionType] = useState('');
 
   useEffect(() => {
-    setFirstVisit(false);
+    setSelectedSectionType('');
   }, []);
 
   const handleArticleSelect = (chapterId, articleId) => {
@@ -25,14 +27,21 @@ function App() {
     setSelectedArticleId(0);
   };
 
+  const handleSectionTypeSelect = (sectionType) => {
+    setSelectedSectionType(sectionType);
+    setSelectedChapterId(0);
+    setSelectedArticleId(0);
+  };
+
   return (
     <Router>
       <div className="app">
-        <TopMenu />
+        <TopMenu onSectionTypeSelect={(sectionType) => handleSectionTypeSelect(sectionType)} />
         <div className="main-content">
           <SideBar
             onArticleSelect={(chapterId, articleId) => handleArticleSelect(chapterId, articleId)}
             onCategorySelect={(category) => handleCategorySelect(category)}
+            selectedSectionType={selectedSectionType}
           />
           <div className="content-area">
             <Routes>
@@ -60,3 +69,5 @@ function App() {
 }
 
 export default App;
+
+// ... rest of the file ...

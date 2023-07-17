@@ -1,3 +1,5 @@
+// entire file content ...
+
 .rpsb-menu-item-content,
 .rpsb-submenu-title {
   white-space: normal;
@@ -6,8 +8,9 @@
   width: 100%;
 }
 
-/* Add the following styles for the selected article */
 .selected-article {
   background-color: #f0f0f0;
   font-weight: bold;
 }
+
+// ... rest of the file ...
