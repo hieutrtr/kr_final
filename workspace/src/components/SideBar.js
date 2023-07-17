@@ -52,6 +52,7 @@ function SideBar({ onArticleSelect, onCategorySelect }) {
         <label htmlFor="category-select">Categories:</label>
         <select id="category-select" value={selectedCategory} onChange={(e) => handleCategorySelect(e.target.value)}>
           <option value="">All Categories</option>
+          <option value="chapter">Chapter</option>
           <option value="definition">Definition</option>
           <option value="concept">Concept</option>
           <option value="exercise">Exercise</option>
@@ -62,7 +63,7 @@ function SideBar({ onArticleSelect, onCategorySelect }) {
       </div>
       <Menu iconShape="square">
         {filteredSections.map(section => (
-          section.type === "chapter" && (
+          section.type === "definition" && (
             <SubMenu title={`${section.title}`} key={`section-${section.id}`} label={`Section ${section.id}: ${section.title}`}>
               {section.articles.map(article => (
                 <MenuItem key={`article-${section.id}-${article.id}`} onClick={() => onArticleSelect(section.id, article.id)}>

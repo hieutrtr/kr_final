@@ -42,7 +42,12 @@ function App() {
                 firstVisit={firstVisit}
                 onArticleSelect={(chapterId, articleId) => handleArticleSelect(chapterId, articleId)}
               />} />
-              <Route path="/definition" element={<h1>Definition Page</h1>} />
+              <Route path="/definition" element={<ContentArea
+                selectedArticleId={selectedArticleId}
+                selectedCategory={selectedCategory}
+                firstVisit={firstVisit}
+                onArticleSelect={(chapterId, articleId) => handleArticleSelect(chapterId, articleId)}
+              />} />
               <Route path="/concept" element={<h1>Concept Page</h1>} />
               <Route path="/exercise" element={<h1>Exercise Page</h1>} />
               <Route path="/about" element={<h1>About Page</h1>} />
