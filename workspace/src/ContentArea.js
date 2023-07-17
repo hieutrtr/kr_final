@@ -2,7 +2,7 @@ import React from 'react';
 import './ContentArea.css';
 import articlesMock from '../data/ArticlesMock';
 
-function ContentArea({ selectedChapterId, selectedArticleId, selectedCategory, onArticleSelect }) {
+function ContentArea({ selectedArticleId, selectedCategory, onArticleSelect }) {
   const selectedArticle = articlesMock.find(article => article.id === selectedArticleId && (selectedCategory === "" || article.category === selectedCategory));
   const featuredArticles = articlesMock.filter(article => article.featured);
 
