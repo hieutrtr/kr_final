@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import TopMenu from './components/TopMenu';
 import SideBar from './components/SideBar';
 import ContentArea from './components/ContentArea';
@@ -35,27 +35,19 @@ function App() {
             onCategorySelect={(category) => handleCategorySelect(category)}
           />
           <div className="content-area">
-            <Route path="/chapters">
-              <ContentArea
+            <Routes>
+              <Route path="/chapters" element={<ContentArea
                 selectedChapterId={selectedChapterId}
                 selectedArticleId={selectedArticleId}
                 selectedCategory={selectedCategory}
                 firstVisit={firstVisit}
                 onArticleSelect={(chapterId, articleId) => handleArticleSelect(chapterId, articleId)}
-              />
-            </Route>
-            <Route path="/definition">
-              <h1>Definition Page</h1>
-            </Route>
-            <Route path="/concept">
-              <h1>Concept Page</h1>
-            </Route>
-            <Route path="/exercise">
-              <h1>Exercise Page</h1>
-            </Route>
-            <Route path="/about">
-              <h1>About Page</h1>
-            </Route>
+              />} />
+              <Route path="/definition" element={<h1>Definition Page</h1>} />
+              <Route path="/concept" element={<h1>Concept Page</h1>} />
+              <Route path="/exercise" element={<h1>Exercise Page</h1>} />
+              <Route path="/about" element={<h1>About Page</h1>} />
+            </Routes>
           </div>
         </div>
       </div>
