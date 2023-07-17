@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Sidebar, Menu, SubMenu, MenuItem } from 'react-pro-sidebar';
-import chaptersMock from '../data/ChaptersMock';
+import sectionsMock from '../data/SectionsMock';
 import articlesMock from '../data/ArticlesMock';
 import './SideBar.css';
 
 function SideBar({ onArticleSelect, onCategorySelect }) {
-  const [filteredChapters, setFilteredChapters] = useState(chaptersMock);
+  const [filteredSections, setFilteredSections] = useState(sectionsMock);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -13,37 +13,37 @@ function SideBar({ onArticleSelect, onCategorySelect }) {
     setSelectedCategory(category);
     onCategorySelect(category);
 
-    // Filter the chapters based on the selected category and search query
-    filterChapters(category, searchQuery);
+    // Filter the sections based on the selected category and search query
+    filterSections(category, searchQuery);
   };
 
   const handleSearch = (query) => {
     setSearchQuery(query);
 
-    // Filter the chapters based on the search query
-    filterChapters(selectedCategory, query);
+    // Filter the sections based on the search query
+    filterSections(selectedCategory, query);
   };
 
-  const filterChapters = (category, query) => {
-    let filteredChapters = chaptersMock;
+  const filterSections = (category, query) => {
+    let filteredSections = sectionsMock;
 
     // Filter by category
     if (category !== '') {
-      filteredChapters = filteredChapters.map(chap => {
-        const newArticles = chap.articles.filter(article => article.category === category);
-        return { ...chap, articles: newArticles };
+      filteredSections = filteredSections.map(sec => {
+        const newArticles = sec.articles.filter(article => article.category === category);
+        return { ...sec, articles: newArticles };
       });
     }
 
     // Filter by search query
     if (query !== '') {
-      filteredChapters = filteredChapters.map(chap => {
-        const newArticles = chap.articles.filter(article => article.title.toLowerCase().includes(query.toLowerCase()));
-        return { ...chap, articles: newArticles };
+      filteredSections = filteredSections.map(sec => {
+        const newArticles = sec.articles.filter(article => article.title.toLowerCase().includes(query.toLowerCase()));
+        return { ...sec, articles: newArticles };
       });
     }
 
-    setFilteredChapters(filteredChapters);
+    setFilteredSections(filteredSections);
   };
 
   return (
@@ -61,10 +61,10 @@ function SideBar({ onArticleSelect, onCategorySelect }) {
         <input type="text" placeholder="Search by title" value={searchQuery} onChange={(e) => handleSearch(e.target.value)} />
       </div>
       <Menu iconShape="square">
-        {filteredChapters.map(chapter => (
-          <SubMenu title={`${chapter.title}`} key={`chapter-${chapter.id}`} label={`Chapter ${chapter.id}: ${chapter.title}`}>
-            {chapter.articles.map(article => (
-              <MenuItem key={`article-${chapter.id}-${article.id}`} onClick={() => onArticleSelect(chapter.id, article.id)}>
+        {filteredSections.map(section => (
+          <SubMenu title={`${section.title}`} key={`section-${section.id}`} label={`Section ${section.id}: ${section.title}`}>
+            {section.articles.map(article => (
+              <MenuItem key={`article-${section.id}-${article.id}`} onClick={() => onArticleSelect(section.id, article.id)}>
                 {article.title}
               </MenuItem>
             ))}
