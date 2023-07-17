@@ -62,13 +62,15 @@ function SideBar({ onArticleSelect, onCategorySelect }) {
       </div>
       <Menu iconShape="square">
         {filteredSections.map(section => (
-          <SubMenu title={`${section.title}`} key={`section-${section.id}`} label={`Section ${section.id}: ${section.title}`}>
-            {section.articles.map(article => (
-              <MenuItem key={`article-${section.id}-${article.id}`} onClick={() => onArticleSelect(section.id, article.id)}>
-                {article.title}
-              </MenuItem>
-            ))}
-          </SubMenu>
+          section.type === "chapter" && (
+            <SubMenu title={`${section.title}`} key={`section-${section.id}`} label={`Section ${section.id}: ${section.title}`}>
+              {section.articles.map(article => (
+                <MenuItem key={`article-${section.id}-${article.id}`} onClick={() => onArticleSelect(section.id, article.id)}>
+                  {article.title}
+                </MenuItem>
+              ))}
+            </SubMenu>
+          )
         ))}
       </Menu>
     </Sidebar>
