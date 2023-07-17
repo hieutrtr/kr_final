@@ -7,7 +7,6 @@ import SideBar from './components/SideBar';
 import ContentArea from './components/ContentArea';
 
 function App() {
-  const [selectedChapterId, setSelectedChapterId] = useState(null);
   const [selectedArticleId, setSelectedArticleId] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedSectionType, setSelectedSectionType] = useState('chapter');
@@ -16,20 +15,17 @@ function App() {
     setSelectedSectionType('chapter');
   }, []);
 
-  const handleArticleSelect = (chapterId, articleId) => {
-    setSelectedChapterId(chapterId);
+  const handleArticleSelect = (articleId) => {
     setSelectedArticleId(articleId);
   };
 
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
-    setSelectedChapterId(0);
     setSelectedArticleId(0);
   };
 
   const handleSectionTypeSelect = (sectionType) => {
     setSelectedSectionType(sectionType);
-    setSelectedChapterId(0);
     setSelectedArticleId(0);
   };
 
@@ -39,31 +35,31 @@ function App() {
         <TopMenu onSectionTypeSelect={(sectionType) => handleSectionTypeSelect(sectionType)} />
         <div className="main-content">
           <SideBar
-            onArticleSelect={(chapterId, articleId) => handleArticleSelect(chapterId, articleId)}
+            onArticleSelect={(articleId) => handleArticleSelect(articleId)}
             onCategorySelect={(category) => handleCategorySelect(category)}
             selectedSectionType={selectedSectionType}
           />
           <div className="content-area">
             <Routes>
-              <Route path="/chapters" element={<ContentArea
+              <Route path="/chapter" element={<ContentArea
                 selectedArticleId={selectedArticleId}
                 selectedCategory={selectedCategory}
-                onArticleSelect={(chapterId, articleId) => handleArticleSelect(chapterId, articleId)}
+                onArticleSelect={(articleId) => handleArticleSelect(articleId)}
               />} />
               <Route path="/definition" element={<ContentArea
                 selectedArticleId={selectedArticleId}
                 selectedCategory={selectedCategory}
-                onArticleSelect={(chapterId, articleId) => handleArticleSelect(chapterId, articleId)}
+                onArticleSelect={(articleId) => handleArticleSelect(articleId)}
               />} />
               <Route path="/concept" element={<ContentArea
                 selectedArticleId={selectedArticleId}
                 selectedCategory={selectedCategory}
-                onArticleSelect={(chapterId, articleId) => handleArticleSelect(chapterId, articleId)}
+                onArticleSelect={(articleId) => handleArticleSelect(articleId)}
               />} />
               <Route path="/exercise" element={<ContentArea
                 selectedArticleId={selectedArticleId}
                 selectedCategory={selectedCategory}
-                onArticleSelect={(chapterId, articleId) => handleArticleSelect(chapterId, articleId)}
+                onArticleSelect={(articleId) => handleArticleSelect(articleId)}
               />} />
               <Route path="/about" element={<h1>About Page</h1>} />
             </Routes>

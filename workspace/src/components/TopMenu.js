@@ -11,7 +11,7 @@ function TopMenu({ onSectionTypeSelect }) {
 
   return (
     <nav className="top-menu">
-      <Link to="/chapters" className="menu-item" onClick={() => handleSectionTypeClick('chapter')}>Chapters</Link>
+      <Link to="/chapter" className="menu-item" onClick={() => handleSectionTypeClick('chapter')}>Chapter</Link>
       <Link to="/definition" className="menu-item" onClick={() => handleSectionTypeClick('definition')}>Definition</Link>
       <Link to="/concept" className="menu-item" onClick={() => handleSectionTypeClick('concept')}>Concept</Link>
       <Link to="/exercise" className="menu-item" onClick={() => handleSectionTypeClick('exercise')}>Exercise</Link>
