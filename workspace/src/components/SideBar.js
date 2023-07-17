@@ -1,12 +1,9 @@
-// entire file content ...
-
 import React, { useState } from 'react';
 import { Sidebar, Menu, SubMenu, MenuItem } from 'react-pro-sidebar';
 import sectionsMock from '../data/SectionsMock';
-import articlesMock from '../data/ArticlesMock';
 import './SideBar.css';
 
-function SideBar({ onArticleSelect, onCategorySelect, selectedSectionType }) {
+function SideBar({ onArticleSelect, onCategorySelect }) {
   const [filteredSections, setFilteredSections] = useState(sectionsMock);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
@@ -54,7 +51,6 @@ function SideBar({ onArticleSelect, onCategorySelect, selectedSectionType }) {
         <label htmlFor="category-select">Categories:</label>
         <select id="category-select" value={selectedCategory} onChange={(e) => handleCategorySelect(e.target.value)}>
           <option value="">All Categories</option>
-          <option value="chapter">Chapter</option>
           <option value="definition">Definition</option>
           <option value="concept">Concept</option>
           <option value="exercise">Exercise</option>
@@ -65,7 +61,7 @@ function SideBar({ onArticleSelect, onCategorySelect, selectedSectionType }) {
       </div>
       <Menu iconShape="square">
         {filteredSections.map(section => (
-          section.type === selectedSectionType && (
+          section.type === "chapter" && (
             <SubMenu title={`${section.title}`} key={`section-${section.id}`} label={`Section ${section.id}: ${section.title}`}>
               {section.articles.map(article => (
                 <MenuItem key={`article-${section.id}-${article.id}`} onClick={() => onArticleSelect(section.id, article.id)}>
@@ -81,5 +77,3 @@ function SideBar({ onArticleSelect, onCategorySelect, selectedSectionType }) {
 }
 
 export default SideBar;
-
-// ... rest of the file ...

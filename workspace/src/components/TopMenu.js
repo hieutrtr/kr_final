@@ -21,5 +21,3 @@ function TopMenu({ onSectionTypeSelect }) {
 }
 
 export default TopMenu;
-
-// ... rest of the file ...

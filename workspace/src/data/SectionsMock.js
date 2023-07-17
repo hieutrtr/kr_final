@@ -377,5 +377,3 @@ const sectionsMock =
   ];
 
 export default sectionsMock;
-
-// ... rest of the file ...

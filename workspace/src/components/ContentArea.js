@@ -41,4 +41,3 @@ function ContentArea({ selectedArticleId, selectedCategory, onArticleSelect, sel
 
 export default ContentArea;
 
-// ... rest of the file ...
