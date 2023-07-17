@@ -3,36 +3,19 @@ import { Sidebar, Menu, SubMenu, MenuItem } from 'react-pro-sidebar';
 import sectionsMock from '../data/SectionsMock';
 import './SideBar.css';
 
-function SideBar({ onArticleSelect, onCategorySelect, selectedSectionType }) {
+function SideBar({ onArticleSelect, selectedSectionType }) {
   const [filteredSections, setFilteredSections] = useState(sectionsMock);
-  const [selectedCategory, setSelectedCategory] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
-
-  const handleCategorySelect = (category) => {
-    setSelectedCategory(category);
-    onCategorySelect(category);
-
-    // Filter the sections based on the selected category and search query
-    filterSections(category, searchQuery);
-  };
 
   const handleSearch = (query) => {
     setSearchQuery(query);
 
     // Filter the sections based on the search query
-    filterSections(selectedCategory, query);
+    filterSections(query);
   };
 
-  const filterSections = (category, query) => {
+  const filterSections = (query) => {
     let filteredSections = sectionsMock;
-
-    // Filter by category
-    if (category !== '') {
-      filteredSections = filteredSections.map(sec => {
-        const newArticles = sec.articles.filter(article => article.category === category);
-        return { ...sec, articles: newArticles };
-      });
-    }
 
     // Filter by search query
     if (query !== '') {
@@ -47,15 +30,6 @@ function SideBar({ onArticleSelect, onCategorySelect, selectedSectionType }) {
 
   return (
     <Sidebar className="sidebar">
-      <div className="category-filter">
-        <label htmlFor="category-select">Categories:</label>
-        <select id="category-select" value={selectedCategory} onChange={(e) => handleCategorySelect(e.target.value)}>
-          <option value="">All Categories</option>
-          <option value="definition">Definition</option>
-          <option value="concept">Concept</option>
-          <option value="exercise">Exercise</option>
-        </select>
-      </div>
       <div className="search-box">
         <input type="text" placeholder="Search by title" value={searchQuery} onChange={(e) => handleSearch(e.target.value)} />
       </div>
