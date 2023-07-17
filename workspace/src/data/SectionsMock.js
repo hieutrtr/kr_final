@@ -1,52 +1,88 @@
 const sectionsMock = [
   {
-    id: 1,
-    title: 'Section 1',
-    articles: [
+    "id": 0,
+    "title": "Introduction to OOP",
+    "articles": [
       {
-        id: 1,
-        title: 'Article 1',
-        category: 'definition',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        "id": 0,
+        "title": "What is Object-Oriented Programming?",
+        "category": "definition"
       },
       {
-        id: 2,
-        title: 'Article 2',
-        category: 'concept',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        "id": 1,
+        "title": "Key Concepts of OOP",
+        "category": "concept"
       },
       {
-        id: 3,
-        title: 'Article 3',
-        category: 'exercise',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      },
-    ],
+        "id": 2,
+        "title": "OOP Exercises",
+        "category": "exercise"
+      }
+    ]
   },
   {
-    id: 2,
-    title: 'Section 2',
-    articles: [
+    "id": 1,
+    "title": "Inheritance",
+    "articles": [
       {
-        id: 4,
-        title: 'Article 4',
-        category: 'definition',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        "id": 3,
+        "title": "Understanding Inheritance in OOP",
+        "category": "definition"
       },
       {
-        id: 5,
-        title: 'Article 5',
-        category: 'concept',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        "id": 4,
+        "title": "Types of Inheritance",
+        "category": "concept"
       },
       {
-        id: 6,
-        title: 'Article 6',
-        category: 'exercise',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      },
-    ],
+        "id": 5,
+        "title": "Inheritance Exercises",
+        "category": "exercise"
+      }
+    ]
   },
+  {
+    "id": 2,
+    "title": "Polymorphism",
+    "articles": [
+      {
+        "id": 6,
+        "title": "Polymorphism Explained",
+        "category": "definition"
+      },
+      {
+        "id": 7,
+        "title": "Implementing Polymorphism",
+        "category": "concept"
+      },
+      {
+        "id": 8,
+        "title": "Polymorphism Exercises",
+        "category": "exercise"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Encapsulation",
+    "articles": [
+      {
+        "id": 9,
+        "title": "Understanding Encapsulation in OOP",
+        "category": "definition"
+      },
+      {
+        "id": 10,
+        "title": "Benefits of Encapsulation",
+        "category": "concept"
+      },
+      {
+        "id": 11,
+        "title": "Encapsulation Exercises",
+        "category": "exercise"
+      }
+    ]
+  }
 ];
 
 export default sectionsMock;
