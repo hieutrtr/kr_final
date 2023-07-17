@@ -2,6 +2,7 @@ const sectionsMock = [
   {
     "id": 0,
     "title": "Introduction to OOP",
+    "type": "chapter",
     "articles": [
       {
         "id": 0,
@@ -23,6 +24,7 @@ const sectionsMock = [
   {
     "id": 1,
     "title": "Inheritance",
+    "type": "chapter",
     "articles": [
       {
         "id": 3,
@@ -44,6 +46,7 @@ const sectionsMock = [
   {
     "id": 2,
     "title": "Polymorphism",
+    "type": "chapter",
     "articles": [
       {
         "id": 6,
@@ -65,6 +68,7 @@ const sectionsMock = [
   {
     "id": 3,
     "title": "Encapsulation",
+    "type": "chapter",
     "articles": [
       {
         "id": 9,
