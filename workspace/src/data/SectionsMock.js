@@ -86,6 +86,94 @@ const sectionsMock = [
         "category": "exercise"
       }
     ]
+  },
+  {
+    "id": 4,
+    "title": "Abstraction",
+    "type": "chapter",
+    "articles": [
+      {
+        "id": 12,
+        "title": "What is Abstraction in OOP?",
+        "category": "definition"
+      },
+      {
+        "id": 13,
+        "title": "Using Abstraction in Practice",
+        "category": "concept"
+      },
+      {
+        "id": 14,
+        "title": "Abstraction Exercises",
+        "category": "exercise"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Encapsulation",
+    "type": "chapter",
+    "articles": [
+      {
+        "id": 15,
+        "title": "Understanding Encapsulation in OOP",
+        "category": "definition"
+      },
+      {
+        "id": 16,
+        "title": "Benefits of Encapsulation",
+        "category": "concept"
+      },
+      {
+        "id": 17,
+        "title": "Encapsulation Exercises",
+        "category": "exercise"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Polymorphism",
+    "type": "chapter",
+    "articles": [
+      {
+        "id": 18,
+        "title": "Polymorphism Explained",
+        "category": "definition"
+      },
+      {
+        "id": 19,
+        "title": "Implementing Polymorphism",
+        "category": "concept"
+      },
+      {
+        "id": 20,
+        "title": "Polymorphism Exercises",
+        "category": "exercise"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Inheritance",
+    "type": "chapter",
+    "articles": [
+      {
+        "id": 21,
+        "title": "Understanding Inheritance in OOP",
+        "category": "definition"
+      },
+      {
+        "id": 22,
+        "title": "Types of Inheritance",
+        "category": "concept"
+      },
+      {
+        "id": 23,
+        "title": "Inheritance Exercises",
+        "category": "exercise"
+      }
+    ]
   }
 ];
 
