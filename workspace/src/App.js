@@ -1,5 +1,3 @@
-// entire file content ...
-
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import TopMenu from './components/TopMenu';
@@ -48,13 +46,11 @@ function App() {
               <Route path="/chapters" element={<ContentArea
                 selectedArticleId={selectedArticleId}
                 selectedCategory={selectedCategory}
-                firstVisit={firstVisit}
                 onArticleSelect={(chapterId, articleId) => handleArticleSelect(chapterId, articleId)}
               />} />
               <Route path="/definition" element={<ContentArea
                 selectedArticleId={selectedArticleId}
                 selectedCategory={selectedCategory}
-                firstVisit={firstVisit}
                 onArticleSelect={(chapterId, articleId) => handleArticleSelect(chapterId, articleId)}
               />} />
               <Route path="/concept" element={<h1>Concept Page</h1>} />
@@ -69,5 +65,3 @@ function App() {
 }
 
 export default App;
-
-// ... rest of the file ...
