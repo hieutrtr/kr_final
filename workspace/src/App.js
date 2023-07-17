@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import TopMenu from './components/TopMenu';
 import SideBar from './components/SideBar';
 import ContentArea from './components/ContentArea';
@@ -34,7 +34,7 @@ function App() {
             onArticleSelect={(chapterId, articleId) => handleArticleSelect(chapterId, articleId)}
             onCategorySelect={(category) => handleCategorySelect(category)}
           />
-          <Switch>
+          <div className="content-area">
             <Route path="/chapters">
               <ContentArea
                 selectedChapterId={selectedChapterId}
@@ -56,7 +56,7 @@ function App() {
             <Route path="/about">
               <h1>About Page</h1>
             </Route>
-          </Switch>
+          </div>
         </div>
       </div>
     </Router>
