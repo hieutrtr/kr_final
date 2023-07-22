@@ -4,4 +4,5 @@ node_modules
 memory
 workspace/run.sh
 workspace/all_output.txt
+*/__pycache__
 prompt

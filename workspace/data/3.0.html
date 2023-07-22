@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Converted Text</title>
+</head>
+<body>
+<h2>3.0 Tổng Quan</h2>
+<p>Trong chương này, chúng ta sẽ bàn sâu hơn về lớp và đối tượng. Các khái niệm hướng đối tượng khác sẽ lần lượt là trọng tâm của các chương sau. Chương này cũng nói về các vấn đề căn bản mà ta cần xem xét mỗi khi thiết kế một lớp.</p>
+<p>Như đã giới thiệu sơ lược trong chương trước, chương trình Java khi chạy là một tập hợp các đối tượng, chúng được yêu cầu thực hiện dịch vụ và yêu cầu dịch vụ của các đối tượng khác. Một đối tượng được tạo ra từ một lớp được gọi là một thực thể (instance) của lớp đó. Ta có thể coi "thực thể" là một cách gọi khác của "đối tượng".</p>
+<p>Lớp là khuôn mẫu để từ đó tạo ra các thực thể. Vậy nên, khi thiết kế một lớp, ta cần nghĩ đến những đối tượng sẽ được tạo ra từ lớp đó. Có hai loại thông tin quan trọng về mỗi đối tượng:</p>
+
+<ul>
+    <li>Những thông tin mà đối tượng đó biết.</li>
+    <li>Những việc mà đối tượng đó làm.</li>
+</ul>
+
+<img src="3.0_img1.png" height="150">
+<p>Hình 3.1: Hai loại thông tin quan trọng về đối tượng.</p>
+
+<p>Những gì mà một đối tượng biết về bản thân nó được gọi là các biến thực thể (instance variable) hay thuộc tính thực thể (instance attribute). Chúng biểu diễn trạng thái (state) của đối tượng hay còn gọi là dữ liệu của đối tượng, các đối tượng khác nhau thuộc cùng loại có thể có các giá trị khác nhau cho các biến thực thể. Các biến thực thể có thể là biến thuộc một trong những kiểu dữ liệu cơ bản (int, boolean, float...) hoặc là tham chiếu tới đối tượng thuộc một lớp nào đó.</p>
+<p>Những gì một đối tượng có thể làm được gọi là các phương thức (method). Các phương thức được thiết kế để thao tác trên dữ liệu của đối tượng. Một đối tượng thường có các phương thức đọc và ghi giá trị cho các biến thực thể. Ví dụ, một đối tượng đồng hồ báo thức có một biến thực thể lưu thời gian cần báo thức, và hai phương thức để đặt và lấy giờ báo thức.</p>
+<p>Tóm lại, đối tượng có các biến thực thể và các phương thức, các biến thực thể và các phương thức này được định nghĩa trong thiết kế của lớp. Công việc viết chương trình là viết các định nghĩa lớp. Định nghĩa lớp mô tả về các thành phần mà mỗi thực thể của nó sẽ chứa, cụ thể là dữ liệu của mỗi thực thể và các phương thức cho phép truy nhập và sửa đổi dữ liệu đó.</p>
+<p>Một lớp không phải là một đối tượng, nó là một khuôn mẫu dùng để tạo nên đối tượng. Nó mô tả cách tạo một đối tượng thuộc kiểu cụ thể đó. Mỗi đối tượng tạo ra từ một lớp có thể có các giá trị riêng cho các biến thực thể. Ví dụ, ta có thể dùng lớp BankAccount để tạo ra nhiều đối tượng tài khoản ngân hàng, mỗi tài khoản có một chủ tài khoản, một số tài khoản, và một số dư riêng; mỗi tài khoản đều có thể làm những việc giống nhau (rút tiền, gửi tiền, đóng tài khoản), tuy chỉ biết những gì chỉ có ở tài khoản cụ thể đó.</p>
+
+</body>
+</html>

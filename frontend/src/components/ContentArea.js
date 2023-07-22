@@ -1,18 +1,33 @@
 // entire file content ...
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './ContentArea.css';
 import articlesMock from '../data/ArticlesMock';
 
-function ContentArea({ selectedArticleId, selectedCategory, onArticleSelect, selectedSectionType }) {
-  const selectedArticle = articlesMock.find(article => article.id === selectedArticleId && (selectedCategory === "" || article.category === selectedCategory));
+function ContentArea({ selectedArticleId, onArticleSelect }) {
   const featuredArticles = articlesMock.filter(article => article.featured);
+  // fetch articles by selectedArticleId 
+  const [selectedArticle, setSelectedArticle] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (selectedArticleId !== null) {
+          const response = await axios.get(`http://localhost:8000/articles/${selectedArticleId}`);
+          setSelectedArticle(response.data);
+        }
+      } catch (error) {
+        console.error('Error fetching articles:', error);
+        throw error;
+      }
+    }
+    fetchData();
+  }, [selectedArticleId]);
 
   return (
     <main className="content-area">
       {selectedArticle ? (
         <div className="article-content">
-          <h2 className="article-title">{selectedArticle.title}</h2>
           <div className="article-body" dangerouslySetInnerHTML={{ __html: selectedArticle.content }}></div>
         </div>
       ) : (

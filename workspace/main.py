@@ -5,7 +5,19 @@ from bson.objectid import ObjectId
 from bson.json_util import dumps
 import json
 
+## allow all CORS
+from fastapi.middleware.cors import CORSMiddleware
+origins = [
+    "http://localhost:3000",
+]
+
 app = FastAPI()
+# CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+)
 
 # MongoDB connection
 client = MongoClient("mongodb://localhost:27017/")
@@ -33,25 +45,21 @@ def create_section(section: Section):
 
 @app.get("/sections/{section_id}")
 def get_section(section_id: str):
-    object_id = ObjectId(section_id)
-    section = sections_collection.find_one({"_id": object_id})
+    section = sections_collection.find_one({"id": int(section_id)}, {"_id": 0})
     if section:
-        section["_id"] = str(section["_id"])
         return section
     else:
         return {"message": "Section not found"}
 
 @app.put("/sections/{section_id}")
 def update_section(section_id: str, section: Section):
-    object_id = ObjectId(section_id)
     section_data = section.dict()
-    sections_collection.update_one({"_id": object_id}, {"$set": section_data})
+    sections_collection.update_one({"id": int(section_id)}, {"$set": section_data})
     return {"message": "Section updated successfully"}
 
 @app.delete("/sections/{section_id}")
 def delete_section(section_id: str):
-    object_id = ObjectId(section_id)
-    sections_collection.delete_one({"_id": object_id})
+    sections_collection.delete_one({"id": int(section_id)})
     return {"message": "Section deleted successfully"}
 
 # CRUD operations for articles
@@ -66,7 +74,8 @@ def get_article(article_id: str):
     object_id = ObjectId(article_id)
     article = articles_collection.find_one({"_id": object_id})
     if article:
-        article["_id"] = str(article["_id"])
+        article["id"] = str(article["_id"])
+        del article["_id"]
         return article
     else:
         return {"message": "Article not found"}
@@ -88,17 +97,16 @@ def delete_article(article_id: str):
 @app.get("/sections/type/{section_type}")
 def get_sections_by_type(section_type: str):
     print(section_type)
-    sections = sections_collection.find({"type": section_type})
+    sections = sections_collection.find({"type": section_type}, {"_id": 0})
     sections = json.loads(dumps(sections))
-    for section in sections:
-        section["_id"] = section["_id"]["$oid"]
     return list(sections)
 
 @app.get("/articles/section/{section_id}")
 def get_articles_by_section(section_id: str):
     # only get id and title of the articles
-    articles = articles_collection.find({"section_id": section_id}, {"_id": 1, "title": 1})
+    articles = articles_collection.find({"section_id": int(section_id)}, {"_id": 1, "title": 1})
     articles = json.loads(dumps(articles))
     for article in articles:
-        article["_id"] = article["_id"]["$oid"]
+        article["id"] = str(article["_id"]["$oid"])
+        del article["_id"]
     return list(articles)

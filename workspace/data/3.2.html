@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Converted Text</title>
+</head>
+<body>
+
+<h2>3.2. TƯƠNG TÁC GIỮA CÁC ĐỐI TƯỢNG</h2> 
+
+<p>Như đã nói đến trong các phần trước, phương thức main phục vụ hai mục tiêu sử dụng: (1) để thử nghiệm các lớp đã cài; (2) để khởi động ứng dụng Java. Khi ở trong các phương thức main nói trên, ta không thực sự ở môi trường hướng đối tượng, main chỉ tạo và chạy thử các đối tượng. Trong khi đó, ở một ứng dụng hướng đối tượng thực thụ, các đối tượng phải "nói chuyện" với nhau.</p>
+<p>Một ứng dụng hướng đối tượng nói chung và ứng dụng Java nói riêng thực chất là các đối tượng nói chuyện với nhau. "Nói chuyện" ở đây có nghĩa rằng các đối tượng gọi các phương thức của nhau. Tại các ví dụ trước, ta có các lớp TestDrive tạo đối tượng các lớp khác và chạy thử các phương thức của chúng. Tại Ch-¬ng 5, ta sẽ có ví dụ mà phương thức main tạo các đối tượng rồi thả cho chúng tương tác với nhau.</p>
+<p>Tạm thời, ta dùng một ví dụ nhỏ về trò chơi đoán số để có một chút phác họa về hoạt động của một ứng dụng hướng đối tượng thực thụ. Do ta vẫn đang ở giai đoạn làm quen với Java, chương trình ví dụ này hơi lộn xộn và không hiệu quả, ta sẽ cải tiến nó ở những chương sau. Nếu có những đoạn mã khó hiểu, ta hãy tạm bỏ qua, vì điểm quan trọng của ví dụ này là các đối tượng nói chuyện với nhau.</p>
+<p>Trò chơi đoán số bao gồm một đối tượng game và ba đối tượng player. Đối tượng game sinh ngẫu nhiên một số trong đoạn từ 0 đến 9, ba player lần lượt thử đoán số đó. Chương trình bao gồm ba lớp: GameLauncher, GuessGame, và Player</p>
+<p>Lô-gic chương trình:</p>
+<ul>
+    <li>GameLauncher là nơi ứng dụng bắt đầu chạy. Lớp này có phương thức main().</li>
+    <li>Phương thức main() tạo một đối tượng GuessGame được tạo và chạy phương thức startGame() của nó.</li>
+    <li>Phương thức startGame() của đối tượng GuessGame là nơi toàn bộ ván chơi xảy ra. Nó tạo ra ba đấu thủ (player), rồi "bịa" ra một số ngẫu nhiên (cái mà các đấu thủ cần đoán). Sau đó, nó yêu cầu từng đấu thủ đoán, kiểm tra kết quả, và in ra thông tin về (các) đấu thủ thắng cuộc hoặc yêu cầu cả ba đoán lại.</li>
+</ul>
+
+<img src="3.2_img1.png" height="300">
+<p>Hình 3.4. Ba lớp của chương trình đoán số.</p>
+
+<p>Nội dung đầy đủ của mã nguồn các lớp GameLauncher, GuessGame và Player được cho trong Hình 3.5 và Hình 3.6.</p>
+
+<img src="3.2_img2.png" height="800">
+<p>Hình 3.5: Mã nguồn GuessGame.java.</p>
+
+<img src="3.2_img3.png" height="250">
+<p>Hình 3.6: Player.java và GameLauncher.java</p>
+
+<h4>Những điểm quan trọng:</h4>
+<ul>
+    <li>Tất cả mã Java đều nằm trong một lớp nào đó.</li>
+    <li>Một lớp đặc tả cách tạo một đối tượng thuộc lớp đó. Một lớp giống như một bản thiết kế</li>
+    <li>Một đối tượng có thể tự lo cho bản thân, ta không phải cần biết hay quan tâm một đối tượng làm việc đó như thế nào.</li>
+    <li>Một đối tượng biết về một số thứ và có thể làm một số việc.</li>
+    <li>Những gì một đối tượng biết về chính nó được gọi là các biến thực thể (thuộc tính) của nó. Chúng đại diện cho trạng thái của đối tượng đó.</li>
+    <li>Những gì một đối tượng có thể làm được gọi là các phương thức. Chúng đại diện cho hành vi của đối tượng đó.</li>
+    <li>Khi viết một lớp, ta có thể muốn viết một lớp khác để test. Tại đó ta tạo các đối tượng thuộc lớp kia và thử nghiệm với chúng.</li>
+    <li>Tại thời gian chạy, một chương trình Java chính là một nhóm các đối tượng đang "nói chuyện" với nhau.</li>
+</ul>
+
+</body>
+</html>
