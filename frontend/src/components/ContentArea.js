@@ -20,7 +20,7 @@ function ContentArea({ selectedArticleId, selectedCategory, onArticleSelect, sel
           {featuredArticles.length > 0 ? (
             <div className="featured-articles featired-container">
               {featuredArticles.map((article, index) => (
-                <div key={article.id} onClick={() => onArticleSelect(article.chapter, article.id)} className={`featured-article ${index % 2 === 0 ? 'even' : 'odd'}`}>
+                <div key={article.id} onClick={() => onArticleSelect(article.section_id, article.id)} className={`featured-article ${index % 2 === 0 ? 'even' : 'odd'}`}>
                   <h2>{article.title}</h2>
                   <div dangerouslySetInnerHTML={{ __html: article.content.substring(0, 200) }}></div>
                   <p className='click-read-more-text'>Click to read more</p>

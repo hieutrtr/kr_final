@@ -2,7 +2,7 @@ const article1 = '<h2>6.3. MỘT SỐ LỚP THÔNG DỤNG TRONG API</h2>  <h3>6.
 const articlesMock = [
   {
     "id": 0,
-    "chapter": 1,
+    "section_id": 1,
     "title": "MỘT SỐ LỚP THÔNG DỤNG TRONG API",
     "category": "definition",
     "featured": true,
@@ -10,7 +10,7 @@ const articlesMock = [
   },
   {
     "id": 1,
-    "chapter": 1,
+    "section_id": 1,
     "title": "Types of Inheritance",
     "category": "concept",
     "featured": true,
@@ -18,7 +18,7 @@ const articlesMock = [
   },
   {
     "id": 2,
-    "chapter": 1,
+    "section_id": 1,
     "title": "Benefits and Drawbacks of Inheritance",
     "category": "concept",
     "featured": true,
@@ -26,7 +26,7 @@ const articlesMock = [
   },
   {
     "id": 3,
-    "chapter": 1,
+    "section_id": 1,
     "featured": true,
     "title": "Examples of Inheritance in OOP",
     "category": "example",
