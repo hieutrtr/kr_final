@@ -36,7 +36,7 @@ function SideBar({ onArticleSelect, selectedSectionType }) {
       <Menu iconShape="square">
         {filteredSections.map(section => (
           section.type === selectedSectionType && (
-            <SubMenu title={`${section.title}`} key={`section-${section.id}`} label={`Section ${section.id}: ${section.title}`}>
+            <SubMenu title={`${section.title}`} key={`section-${section.id}`} label={`${section.title}`}>
               {section.articles.map(article => (
                 <MenuItem key={`article-${section.id}-${article.id}`} onClick={() => onArticleSelect(article.id)}>
                   {article.title}

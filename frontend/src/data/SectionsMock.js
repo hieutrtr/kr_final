@@ -4,29 +4,53 @@ const sectionsMock =
   [
     {
       "id": 1,
-      "title": "Inheritance in OOP",
+      "title": "Chương 7",
       "type": "chapter",
       "articles": [
         {
           "id": 0,
-          "title": "What is Inheritance?",
-          "category": "definition"
+          "title": "QUAN HỆ THỪA KẾ",
         },
         {
           "id": 1,
-          "title": "Types of Inheritance",
-          "category": "concept"
+          "title": "THIẾT KẾ CÂY THỪA KẾ",
         },
         {
           "id": 2,
-          "title": "Benefits and Drawbacks of Inheritance",
-          "category": "concept"
+          "title": "CÀI ĐỀ – PHƯƠNG THỨC NÀO ĐƯỢC GỌI?",
         },
         {
           "id": 3,
-          "title": "Examples of Inheritance in OOP",
-          "category": "example"
-        }
+          "title": "CÁC QUAN HỆ IS-A VÀ HAS-A",
+        },
+        {
+          "id": 4,
+          "title": "KHI NÀO NÊN DÙNG QUAN HỆ THỪA KẾ?",
+        },
+        {
+          "id": 5,
+          "title": "LỢI ÍCH CỦA QUAN HỆ THỪA KẾ",
+        },
+        {
+          "id": 6,
+          "title": "ĐA HÌNH",
+        },
+        {
+          "id": 7,
+          "title": "GỌI PHIÊN BẢN PHƯƠNG THỨC CỦA LỚP CHA",
+        },
+        {
+          "id": 8,
+          "title": "CÁC QUY TẮC CHO VIỆC CÀI ĐÈ",
+        },
+        {
+          "id": 9,
+          "title": "CHỒNG PHƯƠNG THỨC",
+        },
+        {
+          "id": 10,
+          "title": "CÁC MỨC TRUY NHẬP",
+        },
       ]
     },
     {
