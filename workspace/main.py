@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from typing import List
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from bson.json_util import dumps
