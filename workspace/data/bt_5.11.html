@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập</title>
+</head>
+<body>
+    <h2>Bài tập</h2>
+    <ol>
+        <li>Liệt kê 5 ngoại lệ thông dụng.</li>
+        <li>Nếu không có ngoại lệ được ném trong một khối try, điều khiển sẽ đi tới đâu khi khối try chạy xong?</li>
+        <li>Chuyện gì xảy ra nếu không có khối catch nào bắt được đối tượng ngoại lệ bị ném?</li>
+        <li>Chuyện gì xảy ra nếu nhiều hơn một khối catch có thể bắt đối tượng ngoại lệ bị ném?</li>
+        <li>Khối finally dùng để làm gì?</li>
+        <li>Chuyện gì xảy ra với một tham chiếu địa phương trong một khối try khi khối đó ném một ngoại lệ?</li>
+        <li>Trong các phát biểu sau đâu, phát biểu nào đúng/sai?</li>
+            <ol type="a">
+                <li>Sau một khối try phải là một khối catch kèm theo một khối finally.</li>
+                <li>Nếu viết một phương thức có thể phát sinh một ngoại lệ mà trình biên dịch kiểm tra, ta phải bọc đoạn mã đó vào trong một khối try/catch.</li>
+                <li>Các khối catch có thể mang tính đa hình.</li>
+                <li>Chỉ có thể bắt được các loại ngoại lệ mà trình biên dịch kiểm tra.</li>
+                <li>Nếu viết một khối try/catch, có thể viết khối finally, có thể không.</li>
+                <li>Nếu ta viết một khối try, ta có thể viết kèm một khối catch hoặc một khối try tương ứng, hoặc cả hai.</li>
+                <li>Phương thức main() trong chương trình phải xử lý tất cả các ngoại kệ chưa được xử lí rơi xuống cho nó.</li>
+                <li>Một khối try có thể kèm theo nhiều khối catch.</li>
+                <li>Một phương thức chỉ được ném một loại ngoại lệ.</li>
+                <li>Một khối finally sẽ chạy bất kể ngoại lệ có được ném hay không.</li>
+                <li>Một khối finally có thể tồn tại mà không cần đi kèm khối try nào.</li>
+                <li>Thứ tự của các khối catch không quan trọng.</li>
+                <li>Một phương thức có một khối try/catch vẫn có thể khai báo cả phần throws.</li>
+                <li>Các ngoại lệ run-time bắt buộc phải được bắt để xử lý hoặc được khai báo ném.</li>
+            </ol>
+        <li>(Dùng lớp cơ sở khi bắt ngoại lệ) Sử dụng quan hệ thừa kế để tạo một lớp cơ sở <i>ExceptionA</i> và các lớp dẫn xuất <i>ExceptionB</i> và <i>ExceptionC</i>, trong đó <i>ExceptionB</i> thừa kế <i>ExceptionA</i> và <i>ExceptionC</i> thừa kế <i>ExceptionB</i>. Viết một chương trình minh họa cho việc khối catch cho loại <i>ExceptionA</i> bắt các ngoại lệ thuộc loại <i>ExceptionB</i> và <i>ExceptionC</i>.</li>
+        <li>(Dùng lớp Exception khi bắt ngoại lệ) Viết một chương trình minh họa việc bắt các ngoại lệ khác nhau bằng khối <i>catch (Exception exception)</i>. Gợi ý: Đầu tiên, viết lớp <i>ExceptionA</i> là lớp con của <i>Exception</i> và <i>ExceptionB</i> là lớp con của <i>ExceptionA</i>. Trong chương trình, bạn hãy tạo khối try ném các ngoại lệ thuộc các kiểu <i>ExceptionA</i>, <i>ExceptionB</i>, <i>NullPointerException</i> và <i>IOException</i>. Tất cả các ngoại lệ đó cần được bắt bởi các khối catch có khai báo bắt loại <i>Exception</i>.</li>
+        <li>(Thứ tự của các khối catch) Viết một chương trình cho thấy thứ tự của các khối catch là quan trọng. Nếu bạn cố bắt ngoại lệ lớp cha trước khi bắt ngoại lệ lớp con, trình biên dịch sẽ sinh lỗi.</li>
+        <li>(Sự cố tại constructor) Viết một chương trình demo việc một hàm khởi tạo gửi thông tin về một sự cố của hàm khởi tạo đó tới một đoạn mã xử lý ngoại lệ. Định nghĩa lớp <i>SomeException</i>, lớp này ném một đối tượng <i>Exception</i> từ bên trong hàm khởi tạo. Chương trình của bạn cần tạo một đối tượng thuộc loại <i>SomeException</i>, và bắt ngoại lệ được ném từ bên trong hàm khởi tạo.</li>
+        <li>(Ném tiếp ngoại lệ) Viết một chương trình minh họa việc ném tiếp một ngoại lệ. Định nghĩa các phương thức <i>someMethod()</i> và <i>someMethod2()</i>. Phương thức <i>someMethod2()</i> cần ném một ngoại lệ. Phương thức <i>someMethod()</i> cần gọi <i>someMethod2()</i>, bắt ngoại lệ và ném tiếp. Gọi <i>someMethod()</i> từ trong phương thức <i>main</i> và bắt ngoại lệ vừa được ném tiếp. Hãy in thông tin lần vết (stack trace) của ngoại lệ đó.</li>
+        <li>(Bắt ngoại lệ ở bên ngoài hàm xảy ra ngoại lệ) Viết một chương trình minh họa việc một phương thức với khối try không phải bắt tất cả các ngoại lệ được tạo ra từ trong khối try đó. Một số ngoại lệ có thể trượt qua, rơi ra ngoài phương thức và được xử lý ở nơi khác.</li>
+        <li>Với các lớp <i>Account</i>, <i>Fee</i>, <i>NickleNDime</i>, <i>Gambler</i> đã được viết từ bài tập cuối Chương 7, bổ sung các đoạn mã ném và xử lý ngoại lệ để kiểm soát các điều kiện sau:</li>
+            <ol type="a">
+                <li>Tài khoản khi tạo mới phải có số tiền ban đầu lớn hơn 0.</li>
+                <li>Số tiền rút hoặc gửi phải lớn hơn 0 và không được vượt quá số tiền hiện có trong tài khoản. Riêng tài khoản loại Gambler không được rút quá 1⁄2 số tiền hiện có.</li>
+            </ol>
+            <p>Tạo các lớp ngoại lệ <i>InvalidAmountException</i> (số tiền không hợp lệ) và <i>OverWithdrawException</i> (rút tiền quá lượng cho phép) để sử dụng trong các trường hợp trên. Trong đó <i>OverWithdrawException</i> là lớp con của <i>InvalidAmountException</i>.</p>
+            <p>Viết chương trình <i>AccountExceptionTest</i> để chạy thử các trường hợp gây lỗi.</p>
+    </ol>
+</body>
+</html>

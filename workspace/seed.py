@@ -47,19 +47,11 @@ sections  = [
   {"id": 36, "title": "Chương 11", "type": "concept"},
   {"id": 37, "title": "Chương 12", "type": "concept"},
   {"id": 38, "title": "Chương 13", "type": "concept"},
-  {"id": 39, "title": "Chương 1", "type": "exercise"},
-  {"id": 40, "title": "Chương 2", "type": "exercise"},
-  {"id": 41, "title": "Chương 3", "type": "exercise"},
-  {"id": 42, "title": "Chương 4", "type": "exercise"},
-  {"id": 43, "title": "Chương 5", "type": "exercise"},
-  {"id": 44, "title": "Chương 6", "type": "exercise"},
-  {"id": 45, "title": "Chương 7", "type": "exercise"},
-  {"id": 46, "title": "Chương 8", "type": "exercise"},
-  {"id": 47, "title": "Chương 9", "type": "exercise"},
-  {"id": 48, "title": "Chương 10", "type": "exercise"},
-  {"id": 49, "title": "Chương 11", "type": "exercise"},
-  {"id": 50, "title": "Chương 12", "type": "exercise"},
-  {"id": 51, "title": "Chương 13", "type": "exercise"}
+  {"id": 39, "title": "Điền vào chỗ trống", "type": "exercise"},
+  {"id": 40, "title": "Trắc nghiệm_Đúng Sai", "type": "exercise"},
+  {"id": 41, "title": "Tìm lỗi sai", "type": "exercise"},
+  {"id": 42, "title": "Viết chương trình theo yêu cầu", "type": "exercise"},
+  {"id": 43, "title": "Trả lời câu hỏi", "type": "exercise"},
 ];
 
 
@@ -98,6 +90,44 @@ for i in range(1, 14):
                 # title = content.split('<h2>')[1].split('</h2>')[0]
                 content = content.split('<body>')[1].split('</body>')[0]
                 articles_collection.insert_one({"title": title, "content": content, "section_id": i - 1 + 13})
+        except Exception as e:
+            print(e)
+            print(f"Cannot process file {file}")
+
+# Seed concept
+for i in range(1, 14):
+    for j in range(0, 20):
+        file = f"data/tc_{i}.{j}.html"
+        try:
+            with open(file, 'r') as f:
+                content = f.read()
+                # title could be in h1 or h2 or h3 or h4
+                title = content.split('<h2>')[1].split('</h2>')[0] if len(content.split('<h2>')) > 1 \
+                    else content.split('<h1>')[1].split('</h1>')[0] if len(content.split('<h1>')) > 1 \
+                        else content.split('<h3>')[1].split('</h3>')[0] if len(content.split('<h3>')) > 1 \
+                            else content.split('<h4>')[1].split('</h4>')[0]
+                # title = content.split('<h2>')[1].split('</h2>')[0]
+                content = content.split('<body>')[1].split('</body>')[0]
+                articles_collection.insert_one({"title": title, "content": content, "section_id": i - 1 + 13 + 13})
+        except Exception as e:
+            print(e)
+            print(f"Cannot process file {file}")
+
+# Seed concept
+for i in range(1, 6):
+    for j in range(0, 20):
+        file = f"data/bt_{i}.{j}.html"
+        try:
+            with open(file, 'r') as f:
+                content = f.read()
+                # title could be in h1 or h2 or h3 or h4
+                title = content.split('<h2>')[1].split('</h2>')[0] if len(content.split('<h2>')) > 1 \
+                    else content.split('<h1>')[1].split('</h1>')[0] if len(content.split('<h1>')) > 1 \
+                        else content.split('<h3>')[1].split('</h3>')[0] if len(content.split('<h3>')) > 1 \
+                            else content.split('<h4>')[1].split('</h4>')[0]
+                # title = content.split('<h2>')[1].split('</h2>')[0]
+                content = content.split('<body>')[1].split('</body>')[0]
+                articles_collection.insert_one({"title": title, "content": content, "section_id": i - 1 + 13 + 13 + 13})
         except Exception as e:
             print(e)
             print(f"Cannot process file {file}")

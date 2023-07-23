@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Information Retrieval in OOP</title>
+</head>
+<body>
+    <h1>11.2. KHỐI try/catch</h1>
+    <p>Mục trước đã giới thiệu về việc dùng khối try/catch để bắt và xử lý ngoại lệ. Mục này trình bày kĩ hơn về cấu trúc và cơ chế hoạt động của khối try/catch.</p>
+
+    <h2>11.2.1. Bắt nhiều ngoại lệ</h2>
+    <img src="C111_2_img5.png" alt="Bắt nhiều ngoại lệ" width="600" height="500">
+
+    <p>Khi một ngoại lệ xảy ra, trình biên dịch tìm một khối catch phù hợp trong các khối catch đi kèm. Trình tự tìm là lần lượt từ khối thứ nhất đến khối cuối cùng, khối catch đầu tiên bắt được ngoại lệ đó sẽ được thực thi.</p>
+
+    <h2>11.2.2. Hoạt động của khối try/catch</h2>
+    <p>Khi ta chạy một lệnh/phương thức có thể sinh ngoại lệ, một trong hai trường hợp xảy ra:</p>
+    <ol>
+        <li>Phương thức được gọi thành công; khối try được thực thi đầy đủ cho đến lệnh cuối cùng, còn khối catch bị bỏ qua vì không có ngoại lệ nào phải xử lý. Sau khi khối try chạy xong, lệnh đằng sau catch (nghĩa là nằm ngay sau khối try/catch) sẽ chạy.</li>
+        <li>Phương thức được gọi ném ngoại lệ và khối catch bắt được ngoại lệ đó. Các lệnh trong khối try ở sau lệnh phát sinh ngoại lệ bị bỏ qua, điều khiển chuyển tới khối catch, sau khi khối catch thực thi xong, phần còn lại của phương thức tiếp tục chạy.</li>
+        <li>Phương thức được gọi ném ngoại lệ nhưng khối catch không bắt được ngoại lệ đó. Nếu không dùng khối finally mà ta nói đến ở mục sau, điều khiển sẽ nhảy ra khỏi chương trình, bỏ qua phần còn lại của phương thức kể từ sau lệnh phát sinh ngoại lệ và ra khỏi phương thức hiện tại. Điều khiển sẽ quay về nơi gọi phương thức hiện tại hoặc chương trình dừng do lỗi run-time (chi tiết sẽ được trình bày ở Mục 11.4).</li>
+    </ol>
+    <img src="C111_2_img6.png" alt="Hoạt động của khối try/catch" width="600" height="300">
+
+    <h2>11.2.3. Khối finally – những việc dù thế nào cũng phải làm</h2>
+    <p>Phần try và phần catch trong khối try/catch là những phần bắt buộc phải có. Ngoài ra, ta còn có thể lắp một phần có tên finally vào làm phần cuối cùng của khối try/catch.</p>
+
+    <p>Một khối finally là nơi ta đặt các đoạn mã phải được thực thi bất kể ngoại lệ có xảy ra hay không.</p>
+    <p>Với khối finally, trong bất kể tình huống nào, luồng điều khiển cũng phải chạy qua khối lệnh đó. Khi ngoại lệ bị ném ra mà không có khối catch nào bắt được, khối finally cũng chạy trước khi luồng điều kiển ra khỏi phương thức. Ngay cả khi có lệnh return trong khối try hoặc một khối catch, khối finally cũng được thực thi trước khi quay lại chạy lệnh return đó.</p>
+    <p>Với đặc điểm đó, khối finally cho phép ta đặt các đoạn mã dọn dẹp tại một nơi thay vì phải lặp lại nó tại tất cả các điểm mà điều khiển chương trình có thể thoát ra khỏi phương thức.</p>
+
+    <p>Lưu ý rằng, về mặt cú pháp, ta không thể chèn mã vào giữa các phần try, catch, và finally trong một khối try/catch; khối try thì bắt buộc phải có, nhưng các khối catch và finally thì không; tuy nhiên, sau một khối try phải có ít nhất một khối catch hoặc finally.</p>
+
+    <img src="C111_2_img7.png" alt="Khối finally" width="500" height="300">
+
+    <h2>11.2.4. Thứ tự cho các khối catch</h2>
+    <p>Như ta đã trình bày trong Mục 11.1.3, ngoại lệ cũng là các đối tượng nên có tính đa hình, và một khối catch dành cho ngoại lệ lớp cha cũng bắt được ngoại lệ lớp con.</p>
+    <p>Ví dụ các khối catch sau đều bắt được ngoại lệ loại InputMismatchException:</p>
+    <ul>
+        <li>catch(InputMismatchException e) {...} chỉ bắt InputMismatchException,</li>
+        <li>catch(IOException e) {...} bắt tất cả các IOException, trong đó có InputMismatchException,</li>
+        <li>catch(Exception e) {...} bắt tất cả các Exception, trong đó có các IOException.</li>
+    </ul>
+    <p>Có thể hình dung catch(Exception e) là một cái rổ to nhất và hứng được các loại đồ vật với nhiều kích thước hình dạng khác nhau, catch(IOException e) là cái rổ nhỏ hơn chút nên hứng được ít loại đồ vật hơn, còn catch (InputMismatchException e) là cái rổ nhỏ nhất và chỉ hứng vừa một loại đồ vật. Ta có thể chỉ dùng một cái rổ to nhất – khối catch bắt loại ngoại lệ tổng quát nhất – để bắt tất cả các ngoại lệ và xử lý một thể. Tuy nhiên, nếu ta muốn xử lý tùy theo các ngoại lệ thuộc loại khác nhau thì nên dùng các khối catch khác nhau trong một khối try/catch.</p>
+    <p>Vậy các khối catch đó nên được để theo thứ tự nào? Nhớ lại rằng khi một ngoại lệ được ném ra từ bên trong khối try, theo thứ tự từ trên xuống dưới, khối catch nào bắt được ngoại lệ đó thì sẽ được chạy. Do đó, nếu cái rổ to được thử hứng trước cái rổ nhỏ hơn, nghĩa là khối catch cho lớp cha được đặt trước khối catch dành cho lớp con, thì cái rổ to sẽ hứng được ngay còn cái rổ nhỏ hơn sẽ không bao giờ đến lượt mình hứng được cái gì. Vì lí do đó, trình biên dịch sẽ báo lỗi nếu ta không tuân theo quy tắc này.</p>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Converted Text</title>
+</head>
+<body>
+
+<h2>Bài tập</h2>
+<h3>1. Điền từ thích hợp vào chỗ trống trong mỗi câu sau:</h3> 
+<p>a) Biến thực thể thuộc các kiểu char, byte, short, int, long, float, và double đều có giá trị mặc định là <u>_________</u>.</p>
+<p>b) Biến thực thể thuộc kiểu boolean có giá trị mặc địnhlà <u>_________</u>.</p>
+<p>c) Các kiểu dữ liệu trong Java được phân thành hai loại: các kiểu <u>_________</u> và các kiểu <u>_________</u>.</p>
+
+<h3>2. Các phát biểu sau đây đúng hay sai?</h3> 
+<p>a) Có thể gọi phương thức từ một biến kiểu cơ bản.</p>
+<p>b) Các đối tượng được tạo ra đều tồn tại trong bộ nhớ heap cho đến khi chương trình kết thúc</p>
+<p>c) Lúc nào một đối tượng thuộc diện dùng được cũng cần phải có một tham chiếu chiếu tới nó.</p>
+<p>d) Các giá trị có dạng dấu chấm động trong mã nguồn được hiểu mặc định là các giá trị trực tiếp dấu chấm động thuộc kiểu float.</p>
+
+<h3>3. Biến thực thể dùng để làm gì?</h3>
+<h3>4. Tham số của phương thức main() là một mảng String. Mảng này là danh sách các tham số dòng lệnh khi ta chạy chương trình. Ví dụ, khi chạy lệnh java CowArrayDemo foo bar từ dấu nhắc cửa sổ lệnh. Mảng args[] sẽ chứa các xâu kí tự foo và bar. Hãy viết một chương trình in ra màn hình tất cả các tham số dòng lệnh đã nhận được.</h3>
+<h3>5. Tìm và sửa lỗi của các chương trình sau (mỗi phần là một file mã nguồn hoàn chỉnh).</h3>
+<p>a)</p>
+<p><code>class Books {</code></p>
+<p><code>String title;</code></p>
+<p><code>String author;</code></p>
+<p><code>}</code></p>
+
+<p><code>class BooksTestDrive {</code></p>
+<p><code>public static void main(String [] args)</code></p>
+<p><code>Books [] myBooks = new Books(3);</code></p>
+<p><code>int x = 0</code></p>
+<p><code>myBooks[0].title = "The Grapes of Java";</code></p>
+<p><code>myBooks[0].title = "The Java Gatsby";</code></p>
+<p><code>myBooks[0].title = "The Java Cookbook";</code></p>
+<p><code>myBooks[0].author = "bob";</code></p>
+<p><code>myBooks[0].author = "sue";</code></p>
+<p><code>myBooks[0].author = "ian";</code></p>
+
+<p><code>while (x<3) {</code></p>
+<p><code>System.out.print(myBooks[x].title);</code></p>
+<p><code>System.out.print(" by ");</code></p>
+<p><code>System.out.print(rnyBooks[x].author);</code></p>
+<p><code>x = x  + 1;</code></p>
+<p><code>}</code></p>
+<p><code>}</code></p>
+<p><code>}</code></p>
+
+<p>b)</p>
+<p><code>class Hobbits {</code></p>
+<p><code>String name;</code></p>
+<p><code>public static void main(String [] args)</code></p>
+<p><code>Hobbits [] h = new Hobbits[3];</code></p>
+<p><code>int z = 0;</code></p>
+<p><code>while (z<4) {</code></p>
+<p><code>z = z + 1;</code></p>
+<p><code>h[z] = new Hobbits();</code></p>
+<p><code>h[z].name = "frodo";</code></p>
+<p><code>}</code></p>
+<p><code>if (z==2){</code></p>
+<p><code>h[z].name = "sam";</code></p>
+<p><code>}</code></p>
+<p><code>System.out.print(h[z].name + " is a ");</code></p>
+<p><code>System.out.println("good Hobbit name");</code></p>
+<p><code>}</code></p>
+<p><code>}</code></p>
+<p><code>}</code></p>
+
+<h3>6. Cho chương trình sau, liệt kê các đối tượng HeapQuiz được tạo ra; hỏi đến đoạn //do stuff thì các phần tử mảng hq[0] cho tới hq[4] chiếu tới các đối tượng nào.</h3>
+<img src="4.BT_img1.png" height="350">
+
+<h3>7. Dần nhờ Tí và Sửu giúp viết nhanh một đoạn mã xử lý danh bạ điện thoại cho điện thoại di động, người nào có giải pháp tốt hơn sẽ được trả công là một túi bỏng ngô. Sau khi nghe Dần mô tả, Sửu viết lên bảng đoạn mã sau:</h3> 
+<p><code>Contact [] a = new Contact[10];</code></p>
+<p><code>while (x < 10) { //tạo 10 đối tượng Contact</code></p>
+<p><code>a[x] = new Contact();</code></p>
+<p><code>x = x + 1;</code></p>
+<p><code>}</code></p>
+
+<p><code>//dùng mảng a để cập nhật danh bạ</code></p>
+
+<p>Tí nhìn qua rồi cười "Điện thoại di động bộ nhớ bé tí mà cậu hoang phí quá!". Nói đoạn, Tí viết:</p>
+<p><code>Contact ref;</code></p>
+<p><code>while (x < 10) { //tạo 10 đối tượng Contact</code></p>
+<p><code>ref = new Contact();</code></p>
+<p><code>x = x + 1;</code></p>
+<p><code>}</code></p>
+<p><code>//dùng ref để cập nhật danh bạ</code></p>
+
+<p>Viết xong, Tí hể hả "Bỏng ngô là của tớ rồi!". Dần cười "Tiết kiệm bộ nhớ hơn thật, nhưng cậu phải ăn ké Sửu thôi."</p>
+<p>Tại sao Dần lại quyết định như vậy?</p>
+
+</body>
+</html>

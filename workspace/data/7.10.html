@@ -1,0 +1,12 @@
+<h2>7.10. CHỒNG PHƯƠNG THỨC</h2>
+<p>Các ví dụ về cài đè sai trong mục trước đã nói đến khái niệm cài chồng phương thức (method overload).</p>
+<p>Cài chồng phương thức chỉ đơn giản là có một vài phương thức trùng tên nhưng khác danh sách đối số. Phương thức chồng không liên quan đến đa hình hay thừa kế. Một phương thức cài chồng không phải phương thức cài đè.</p>
+<p>Cài chồng phương thức cho phép ta tạo nhiều phiên bản của một phương thức, mỗi phiên bản chấp nhận một danh sách đối số khác nhau, nhằm tạo thuận lợi cho việc gọi phương thức.</p>
+<img src="Chapter7_10_image1.jpg" alt="">
+<p>Ta sẽ còn quay lại các trường hợp áp dụng cài chồng khi nói về các hàm khởi tạo (constructor) trong Ch-¬ng 9.</p>
+<p>Do cơ chế cài chồng phương thức không phải tuân thủ hợp đồng đa hình do lớp cha quy định, các phương thức chồng có tính linh hoạt cao hơn.</p>
+<ul>
+    <li>Kiểu trả về có thể khác nhau. Ta có thể tùy ý thay đổi kiểu trả về tại các phương thức chồng, miễn là danh sách đối số khác nhau.</li>
+    <li>Khác biệt duy nhất ở kiểu trả về là không đủ. Nếu không, đó không phải là việc cài chồng hợp lệ, trình biên dịch sẽ cho rằng ta đang định cài đè phương thức. Để overload, ta nhất định phải sửa danh sách tham số.</li>
+    <li>Có thể nới rộng hoặc hạn chế quyền truy nhập tùy ý. Ta có thể tùy ý thay đổi quyền truy nhập của phương thức chồng vì phương thức mới không bị buộc phải tuân theo hợp đồng đa hình, nếu có, của phương thức cũ.</li>
+</ul>

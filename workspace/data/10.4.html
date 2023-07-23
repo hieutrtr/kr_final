@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Converted Text</title>
+</head>
+<body>
+
+<h2>10.4. KHỞI TẠO BIẾN LỚP</h2> 
+
+<p>Các biến static được khởi tạo khi lớp được nạp vào bộ nhớ. Một lớp được nạp khi máy ảo Java quyết định đến lúc cần nạp, chẳng hạn như khi ai đó định tạo thực thể đầu tiên của lớp đó, hoặc dùng biến static hoặc phương thức static của lớp đó.</p>
+<p>Có hai đảm bảo về việc khởi tạo các biến static: (1) các biến static trong một lớp được khởi tạo trước khi bất cứ đối tượng nào của lớp đó có thể được tạo; (2) các biến static trong một lớp được khởi tạo trước khi bất cứ phương thức static nào của lớp đó có thể chạy;</p>
+<p>Ta có hai cách để khởi tạo biến static. Thứ nhất, khởi tạo ngay tại dòng khai báo biến, ví dụ như trong Hình 10.1:</p>
+<p><code>static {</code></p>
+<p><code>numOfCows = 0;</code></p>
+<p><code>}</code></p>
+
+<p>Một lớp có thể có vài khối khởi tạo static đặt ở bất cứ đâu trong định nghĩa lớp. Chúng được đảm bảo sẽ được kích hoạt theo đúng thứ tự xuất hiện trong mã. Và quan trọng bậc nhất là chúng được đảm bảo sẽ chạy trước khi bất gì biến thành viên nào được truy nhập hay phương thức static nào được chạy.</p>
+
+</body>
+</html>

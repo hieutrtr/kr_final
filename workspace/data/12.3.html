@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>12.3. KHÔI PHỤC ĐỐI TƯỢNG</title>
+</head>
+<body>
+    <h2>12.3. KHÔI PHỤC ĐỐI TƯỢNG</h2>
+    <p>Mục đích của việc chuỗi hóa một đối tượng là để ta có thể khôi phục nó về trạng thái cũ vào một thời điểm khác, tại một lần chạy khác của máy ảo Java (thậm chí tại máy ảo khác). Việc khôi phục đối tượng (deserialization) gần như là quá trình ngược lại của chuỗi hóa.</p>
+    <!-- Add the image here -->
+    <img src="C121_3_img1.png" alt="" width="600" height="300">
+
+    <p><strong>Bước 1:</strong> tạo một dòng vào dạng file, FileInputStream, đối tượng dòng vào này kết nối với file có tên 'game.dat', nếu không tìm thấy file với tên đó thì ta sẽ nhận được một ngoại lệ.</p>
+
+    <p><strong>Bước 2:</strong> tạo một đối tượng dòng vào dạng đối tượng, ObjectInputStream. Nó cho phép đọc đối tượng nhưng nó lại không thể kết nối trực tiếp với một file. Nó cần được nối với một đối tượng kết nối, ở đây là FileInputStream, để có thể ghi ra file.</p>
+
+    <p><strong>Bước 3:</strong> mỗi lần gọi readObject(), ta sẽ lấy được đối tượng tiếp theo từ trong dòng ObjectInputStream. Do đó, ta sẽ đọc các đối tượng theo đúng thứ tự mà chúng đã được ghi. Ta sẽ nhận được ngoại lệ nếu cố đọc nhiều hơn số đối tượng đã được ghi vào file.</p>
+
+    <p><strong>Bước 4:</strong> giá trị trả về của readObject() là tham chiếu kiểu Object, do đó ta cần ép kiểu cho nó trở lại kiểu thực sự của đối tượng mà ta biết.</p>
+
+    <p><strong>Bước 5:</strong> đóng ObjectInputStream. Khi đóng một dòng vào, các dòng mà nó nối tới, ở đây là FileInputStream, sẽ được đóng tự động. Việc đọc dữ liệu đến đây kết thúc.</p>
+
+    <p>Quá trình khôi phục đối tượng diễn ra theo các bước như sau:</p>
+    <!-- Add the image here -->
+    <img src="C121_3_img2.png" alt="" width="700" height="300">
+
+    <ol>
+        <li>Đối tượng được đọc từ dòng vào dưới dạng một chuỗi byte.</li>
+        <li>Máy ảo Java xác định xem đối tượng thuộc lớp gì, qua thông tin lưu trữ tại đối tượng được chuỗi hóa.</li>
+        <li>Máy ảo tìm và nạp lớp đó. Nếu không tìm thấy hoặc không nạp được, máy ảo sẽ ném một ngoại lệ và quá trình khôi phục thất bại.</li>
+        <li>Một đối tượng mới được cấp phát bộ nhớ tại heap, nhưng hàm khởi tạo của đối tượng đó không chạy. Nếu chạy thì nó sẽ khởi tạo về trạng thái ban đầu như kết quả của lệnh new. Ta muốn đối tượng được khôi phục về trạng thái khi nó được chuỗi hóa, chứ không phải trạng thái khi nó mới được sinh ra.</li>
+        <li>Nếu đối tượng có một lớp tổ tiên thuộc loại không chuỗi hóa được, hàm khởi tạo cho lớp đó sẽ được chạy cùng với các hàm khởi tạo của các lớp bên trên nó trên cây phả hệ.</li>
+        <li>Các biến thực thể của đối tượng được gán giá trị từ trạng thái đã được chuỗi hóa. Các biến transient được gán giá trị mặc định: null cho tham chiếu và 0/false/... cho kiểu cơ bản.</li>
+    </ol>
+    <!-- Add the image here -->
+    <img src="C121_3_img3.png" alt="" width="700" height="800">
+</body>
+</html>

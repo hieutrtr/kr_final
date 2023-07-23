@@ -1,0 +1,111 @@
+<h2>8.7. ĐA THỪA KẾ VÀ VẤN ĐỀ HÌNH THOI</h2>
+<p>
+    Cây thừa kế động vật vốn được thiết kế để dùng cho bài toán giả lập môi trường
+    sống của động vật. Nếu cần xây dựng phần mềm dạy học cho môn động vật học, ta
+    sẽ tái sử dụng được các lớp trong cây thừa kế đó. Giả sử bây giờ ta mới nhận
+    được yêu cầu xây dựng phần mềm PetShop cho cửa hàng thú cảnh, và ta muốn dùng
+    lớp Dog cho phần mềm mới. Hiện tại các lớp động vật chưa có các hành vi của thú
+    cảnh (Pet) như play() và beFriendly(). Với vai trò lập trình viên cho lớp Dog,
+    ta sẽ làm gì?
+</p>
+<p>
+    Chỉ việc thêm những phương thức cần thiết? Làm vậy ta sẽ không phá vỡ mã của bất
+    kì ai khác vì ta không động đến các phương thức đã có sẵn mà mã của người khác
+    có thể gọi cho các đối tượng Dog.
+</p>
+<p>
+    Đúng nhưng chưa đủ. Lưu ý rằng đây là phần mềm cho cửa hàng thú cảnh, ở đó không
+    chỉ có chó, ta sẽ không chỉ cần đến lớp Dog. Việc bổ sung các phương thức mới vào
+    Dog, do đó, có những nhược điểm gì?
+</p>
+<p>
+    Ta lần lượt xét từng phương án:
+    <ul>
+        <li>
+            Phương án 1: đặt các hành vi thú cảnh tại lớp Animal.
+            <ul>
+                <li>
+                    Ưu điểm: Tất cả các lớp động vật lập tức có các hành vi thú cảnh.
+                    Ta không phải sửa các lớp khác, và các lớp con sẽ được tạo trong tương
+                    lai cũng được thừa kế. Lớp Animal có thể dùng làm kiểu đa hình trong
+                    chương trình muốn đối xử đồng loạt các đối tượng Animal như là thú cảnh.
+                </li>
+                <li>
+                    Nhược điểm: Hà mã, sư tử, chó sói hầu như chắc chắn không phải thú
+                    cảnh nên Hippo, Lion, và Wolf không nên có các hành vi thú cảnh. Kể cả
+                    nếu cài đè các hành vi thú cảnh tại các lớp này để chúng 'không làm gì'
+                    thì vẫn không ổn, vì khi đó hợp đồng của các lớp Hippo, Lion,... cho
+                    những đối tượng không bao giờ là thú cảnh vẫn có những hành vi của thú
+                    cảnh.
+                </li>
+            </ul>
+        </li>
+        <li>
+            Phương án 2: chỉ đặt các hành vi thú cảnh tại các lớp cần đến nó.
+            <ul>
+                <li>
+                    Ưu điểm: Không còn rắc rối về chuyện hà mã làm thú cảnh. Dog và Cat có
+                    thể cài các phương thức đó và các lớp khác không bị liên lụy.
+                </li>
+                <li>
+                    Nhược điểm: Hai vấn đề nghiêm trọng:
+                    <ul>
+                        <li>
+                            Phải có giao thức chung mà từ nay trở đi tất cả các lập trình viên
+                            cho các lớp Animal phải biết. Giao thức đó bao gồm các phương thức
+                            mà ta quyết định rằng tất cả các lớp thú cảnh phải có, tên là gì, trả
+                            về kiểu gì, đối số kiểu gì. Nói cách khác là hợp đồng của thú cảnh.
+                            Và ta hiện không có cách gì để đảm bảo sẽ không có ai nhầm.
+                        </li>
+                        <li>
+                            Không thể dùng đa hình cho các phương thức thú cảnh đó. Không thể
+                            dùng tham chiếu Animal cho các phương thức thú cảnh.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            Tóm lại, ta cần gì?
+            <ul>
+                <li>Đặt hành vi thú cảnh tại các lớp thú cảnh và chỉ tại đó mà thôi.</li>
+                <li>
+                    Đảm bảo rằng tất cả các lớp thú cảnh hiện có cũng như sẽ được viết sẽ phải
+                    có tất cả các phương thức đã được quy định (tên, đối số, kiểu trả về...) mà
+                    không phải ngồi hy vọng rằng ai đó sẽ làm đúng.
+                </li>
+                <li>
+                    Tận dụng được lợi thế của đa hình, sao cho có thể gọi được phương thức
+                    của tất cả các loại thú cảnh mà không phải dùng riêng các kiểu đối số, kiểu
+                    trả về, dùng từng mảng riêng cho từng loại một.
+                </li>
+            </ul>
+        </li>
+    </ul>
+</p>
+<img src="Chapter8_7_image1.png" alt="">
+<p>
+    Khi lớp con thừa kế từ nhiều hơn một lớp cha, ta có tình trạng được gọi là "đa
+    thừa kế". Hình thức đa thừa kế này có tiềm năng gây ra một rắc rối nghiêm trọng
+    được gọi là Vấn đề Hình thoi (the Diamond problem) như ví dụ trong Hình 8.5.
+    Trong ví dụ đó, hai lớp DVDBurner (thiết bị ghi đĩa DVD) và CDBurner (thiết bị ghi
+    đĩa CD) cùng là lớp con của DigitalRecorder (đầu thu kĩ thuật số), cả hai cài đè
+    phương thức burn() và cùng thừa kế biến thành viên i. Giả sử biến i được dùng tại
+    DVDBurner cũng như CDBurner, nhưng với các giá trị khác nhau. Chuyện gì xảy ra
+    nếu ComboDrive – lớp con thừa kế cả hai lớp trên – cần dùng đến cả hai giá trị i đó?
+    Còn nữa, khi gọi phương thức burn() cho một đối tượng ComboDrive, phiên bản
+    burn() nào sẽ được chạy?
+</p>
+<img src="Chapter8_7_image2.png" alt="">
+<p>
+    Ngôn ngữ lập trình nào cho phép đa thừa kế sẽ phải giải quyết những tình trạng
+    rối rắm trên, sẽ phải có những quy tắc đặc biệt để xử lý những tình huống nhập
+    nhằng ngữ nghĩa có thể xảy ra. C++ là một trong những ngôn ngữ như vậy. Java
+    được thiết kế theo tiêu chí đơn giản, nên nó không cho phép một lớp được thừa kế
+    từ nhiều hơn một lớp cha.
+</p>
+<p>
+    Vậy ta phải giải quyết bài toán thú cảnh như thế nào với Java?
+</p>
+
+

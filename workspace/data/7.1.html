@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chương 7</title>
+</head>
+<body>
+    <h2>7.1. QUAN HỆ THỪA KẾ</h2>
+    <p>Nhớ lại ví dụ đầu tiên về lập trình hướng đối tượng tại Chương 1. Trong đó, Dậu xây dựng 4 lớp: Square (hình vuông), Circle (đường tròn), Triangle (hình tam giác), và Amoeba (hình trùng biến hình). Cả bốn đều là các hình với hai phương thức rotate() và playSound(). Do đó, anh ta dùng tư duy trừu tượng hóa để tách ra các đặc điểm chung và đưa chúng vào một lớp mới có tên Shape (hình nói chung). Sau đó, kết nối các lớp hình vẽ kia với lớp Shape bởi một quan hệ gọi là thừa kế.<br>
+    Ta nói rằng "Square thừa kế từ Shape", "Circle thừa kế từ Shape", v.v.. Ta tháo gỡ rotate() và playSound ra khỏi 4 loại hình, và giờ thì chỉ còn phải quản lý một bản đặt tại lớp Shape. Shape được gọi là lớp cha (superclass) hay lớp cơ sở (base class) của bốn lớp kia. Còn bốn lớp đó là các lớp con (subclass) hay lớp dẫn xuất (derived class) của lớp Shape. Các lớp con thừa kế các phương thức của lớp cha. Nói cách khác, nếu lớp Shape có chức năng gì thì các lớp con của nó tự động có các chức năng đó.</p>
+<p><img src="Chapter7_1_image1.png" alt="" /></p>
+    <p>Vậy thế nào là quan hệ thừa kế? Nếu ta cần xây dựng các lớp đại diện cho hai loài mèo nhà và hổ, mèo nhà nên thừa kế từ hổ, hay hổ nên thừa kế từ mèo, hay cả hai cùng thừa kế từ một lớp thứ ba?</p>
+    <p>103Khi ta dùng quan hệ thừa kế trong thiết kế, ta đặt các phần mã dùng chung tại một lớp và coi đó là lớp cha – lớp dùng chung trừu tượng hơn, các lớp cụ thể hơn là các lớp con. Các lớp con được thừa kế từ lớp cha đó. Quan hệ thừa kế có nghĩa rằng lớp con được thừa hưởng các thành viên (member) của lớp cha. Thành viên của một lớp là các biến thực thể và phương thức của lớp đó. Ví dụ, Shape trong ví dụ trên có hai thành viên rotate() và playSound(), Cow trong Hình 5.6 có các thành viên name, age, getName(), getAge(), setName(), setAge().</p>
+    <p>Ta còn nói rằng lớp con chuyên biệt hóa (specialize) lớp cha. Nghĩa của "chuyên biệt hóa" ở đây gồm có hai phần: (1) lớp con là một loại con của lớp cha – thể hiện ở chỗ lớp con tự động thừa hưởng các thành viên của lớp cha, (2) lớp con có những đặc điểm của riêng nó - thể hiện ở chỗ lớp con có thể bổ sung các phương thức và biến thực thể mới của riêng mình, và nó có thể cài đè (override) các phương thức thừa kế từ lớp cha. Ví dụ, hình trùng biến hình (Amoeba) cũng là một hình (Shape), do đó lớp con Amoeba có tất cả những gì mà Shape có. Ngoài ra, Amoeba có thêm những đặc điểm riêng của thể loại hình trùng biến hình: các biến thực thể đại diện cho tâm xoay để phục vụ cách xoay của riêng nó, và nó định nghĩa lại các phương thức rotate để xoay theo cách riêng, định nghĩa lại playSound để chơi loại âm thanh riêng. Theo thuật ngữ, và cũng là từ khóa, của Java, lớp con "nối dài" (extends) lớp cha.</p>
+    <p>Các biến thực thể không bị cài đè vì việc đó là không cần thiết. Biến thực thể không quy định một hành vi đặc biệt nào và lớp con chỉ việc gán giá trị tùy chọn cho biến được thừa kế.</p>
+</body>
+</html>
+
+

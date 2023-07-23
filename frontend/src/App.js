@@ -54,7 +54,14 @@ function App() {
                 selectedArticleId={selectedArticleId}
                 onArticleSelect={(articleId) => handleArticleSelect(articleId)}
               />} />
-              <Route path="/about" element={<h1>About Page</h1>} />
+              <Route path="/about" element={
+                <div>
+                <h2>Trần Trung Hiếu - 02C01009</h2>
+                <h2>Đàm Thị Minh Phượng - 22C01015</h2>
+                <h2>Vũ Trần Hoài Hân - 22C01005</h2>
+                <h2>Nguyễn Phương Thy - 22C01020</h2>
+                </div>
+              } />
             </Routes>
           </div>
         </div>

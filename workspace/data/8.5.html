@@ -1,0 +1,50 @@
+<p>
+8.5. LỚP Object
+Thêm một bước nữa, nếu ta muốn có danh sách lưu được cả những đối tượng
+không phải động vật thì sao? Ta có thể tiếp tục thay đổi theo kiểu sửa kiểu mảng,
+kiểu đối số phương thức add() thành cái gì đó tổng quát hơn và trừu tượng hơn
+Animal? Nhưng ta không viết lớp cha cho Animal.
+</p>
+<p>
+Thực ra Animal đã có lớp cha. Đối với Java, tất cả các lớp đều là lớp con của lớp
+Object. Object là tổ tiên của tất cả. Ngay từ đầu, ta đã viết các lớp con của Object mà
+không biết, ta viết lớp con của Object mà không cần phải khai báo quan hệ thừa kế
+đó bằng từ khóa <em>extends</em>.
+</p>
+<p>
+Bất kì lớp nào không được khai báo tường minh là lớp con của một lớp khác thì
+đều được khai báo ẩn là lớp con của Object. Vậy nên, ta có <em>Dog</em> không phải là lớp
+con trực tiếp của Object, còn <em>Animal</em> là lớp con trực tiếp của Object, và tất cả <em>Dog</em>,
+<em>Cat</em>, <em>Canine</em>, <em>Animal</em>... đều nằm trong cây phả hệ có gốc là Object.
+</p>
+<p>
+Với tất cả các lớp đều nằm trong cây thừa kế có Object tại gốc, cơ chế đa hình
+cho phép ta tạo các cấu trúc dữ liệu dành cho đối tượng thuộc tất cả các lớp. Chẳng
+hạn một mảng kiểu Object có thể lưu đối tượng thuộc đủ loại <em>Animal, Cow, Dog,</em>
+<em>Cat, PhoneBook, String...</em> Trong thư viện chuẩn của Java có lớp <em>ArrayList</em> được định
+nghĩa để quản lý các đối tượng thuộc kiểu Object. <em>ArrayList</em> có thể dùng để quản lý
+đối tượng thuộc tất cả các kiểu.
+</p>
+<p>
+Lớp <em>Object</em> cho các lớp khác thừa kế những gì? Trong các phương thức được
+thừa kế của <em>Object</em> có bốn phương thức thông dụng:
+<ul>
+  <li>
+    <em>boolean equals(Object o)</em>: kiểm tra xem hai đối tượng hiện hành có 'bằng nhau'
+    hay không, xem thêm về ý nghĩa của khái niệm 'bằng nhau' này tại Ch-¬ng 13.
+  </li>
+  <li>
+    <em>Class getClass()</em>: trả về lớp mà đối tượng hiện hành đã được tạo từ đó.
+  </li>
+  <li>
+    <em>int hashCode()</em>: trả về mã băm của đối tượng hiện hành, ta tạm thời xem mã này
+    như là một định danh của đối tượng.
+  </li>
+  <li>
+    <em>String toString()</em>: trả về biểu diễn dạng String của đối tượng, ta thường cài đè
+    phương thức này để trả về biểu diễn String theo ý muốn của ta thay vì trả về
+    chuỗi kí tự được kết xuất một cách tổng quát như ví dụ bên dưới.
+  </li>
+</ul>
+</p>
+

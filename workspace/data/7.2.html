@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chương 7 - Thiết kế cây thừa kế</title>
+</head>
+<body>
+    <h2>7.2. THIẾT KẾ CÂY THỪA KẾ</h2>
+    <p>Giả sử ta cần thiết kế một chương trình giả lập cho phép người dùng thả một đám các con động vật thuộc các loài khác nhau vào một môi trường để xem chuyện gì xảy ra. Ta hiện chưa phải viết mã mà mới chỉ ở giai đoạn thiết kế.</p>
+    <p>Ta biết rằng mỗi con vật sẽ được đại diện bởi một đối tượng, và các đối tượng sẽ di chuyển loanh quanh trong môi trường, thực hiện các hành vi được lập trình cho loài vật đó. Ta được giao một danh sách các loài vật sẽ được đưa vào chương trình: sư tử, hà mã, hổ, chó, mèo, sói.</p>
+    <p>Và ta muốn rằng, khi cần, các lập trình viên khác cũng có thể bổ sung các loài vật mới vào chương trình.</p>
+    <p><strong>Bước 1:</strong> Ta xác định các đặc điểm chung và trừu tượng mà tất cả các loài động vật đều có.</p>
+    <p>Các đặc điểm chung đó bao gồm:</p>
+    <ul>
+        <li>5 biến thực thể:</li>
+        <ul>
+            <li>picture – tên file ảnh đại diện cho con vật này</li>
+            <li>food – loại thức ăn mà con vật thích. Hiện giờ, biến này chỉ có hai giá trị: cỏ (grass) hoặc thịt (meat).</li>
+            <li>hunger – một biến int biểu diễn mức độ đói của con vật. Biến này thay đổi tùy theo khi nào con vật ăn và nó ăn bao nhiêu.</li>
+            <li>boundaries – các giá trị biểu diễn chiều dọc và chiều ngang (ví dụ 640 x 480) của khu vực mà các con vật sẽ đi lại hoạt động trong đó.</li>
+            <li>location – các tọa độ X và Y của con vật trong khu vực của nó.</li>
+        </ul>
+        <li>4 phương thức:</li>
+        <ul>
+            <li>makeNoise() – hành vi khi con vật phát ra tiếng kêu</li>
+            <li>eat() – hành vi khi con vật gặp nguồn thức ăn ưa thích, thịt hoặc cỏ.</li>
+            <li>sleep() – hành vi khi con vật được coi là đang ngủ.</li>
+            <li>roam() – hành vi khi con vật không phải đang ăn hay đang ngủ, có thể chỉ đi lang thang đợi gặp món gì ăn được hoặc gặp biên giới lãnh địa.</li>
+        </ul>
+    </ul>
+    <p><strong>Bước 2:</strong> Thiết kế một lớp với tất cả các thuộc tính và hành vi chung kể trên. Đây sẽ là lớp mà tất cả các lớp động vật đều có thể chuyên biệt hóa. Các đối tượng trong ứng dụng đều là các con vật (animal), do đó, ta sẽ gọi tên lớp cha chung của chúng là Animal. Ta đưa vào đó các phương thức và biến thực thể mà tất cả các con vật đều có thể cần. Kết quả là ta được lớp cha là lớp tổng quát hơn, hay nói cách khác là trừu tượng hơn, còn các lớp con mang tính đặc thù hơn, chuyên biệt hơn lớp cha.</p>
+    <p><strong>Bước 3:</strong> Xác định xem các lớp con có cần các hành vi (cài đặt của các phương thức) đặc thù của thể loại con cụ thể đó hay không?</p>
+    <p>Để ý lớp Animal. Chắc chắn sư tử không ăn giống hà mã. Còn về tiếng kêu, ta có thể viết duy nhất một phương thức makeNoise tại Animal trong đó chơi một file âm thanh có tên là giá trị của một biến thực thể mà có giá trị khác nhau tùy loài, để con vật này kêu khác con vật khác. Nhưng làm vậy có vẻ chưa đủ vì tùy từng tình huống mà các loài khác nhau phát ra các tiếng kêu khác nhau, chẳng hạn tiếng kêu khi đang ăn và tiếng kêu khi gặp kẻ thù, v.v..</p>
+    <p>Do đó, ta quyết định rằng eat() và makeNoise() nên được cài đè tại từng lớp con. Tạm coi các con vật sleep và roam như nhau và không cần cài đè hai phương thức này. Ngoài ra, một số loài có những hành vi riêng đặc trưng của loài đó, chẳng hạn chó có thêm hành vi đuổi mèo (chaseCats()) bên cạnh các hành vi mà các loài động vật khác cũng có.</p>
+    <p><strong>Bước 4:</strong> Tiếp tục dùng trừu tượng hóa tìm các lớp con có thể còn có hành vi giống nhau, với mục đích phân nhóm mịn hơn nếu cần.</p>
+    <p>Ví dụ, sói và chó có họ hàng gần, cùng thuộc họ Chó (canine) trong phân loại động vật học, chúng cùng có xu hướng di chuyển theo bầy đàn nên có thể dùng chung một phương thức roam(). Mèo, hổ và sư tử cùng thuộc họ Mèo (feline). Ba loài này có thể chung phương thức roam() vì khi di chuyển chúng cùng có xu hướng tránh đồng loại. Ta sẽ để cho hà mã tiếp tục dùng phương thức roam() tổng quát được thừa kế từ Animal.</p>
+    <p>Ta tạm hoàn thành thiết kế như trong Hình 7.1 và sẽ quay lại bài toán này trong chương sau.</p>
+</body>
+</html>
+

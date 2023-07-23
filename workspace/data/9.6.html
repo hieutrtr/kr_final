@@ -1,0 +1,30 @@
+<h2>9.6. CUỘC ĐỜI CỦA ĐỐI TƯỢNG</h2>
+<p>Cuộc đời của một đối tượng hoàn toàn phụ thuộc vào sự tồn tại của các tham
+chiếu chiếu tới nó. Nếu vẫn còn một tham chiếu, thì đối tượng vẫn còn sống trong
+heap. Nếu không còn một tham chiếu nào chiếu tới nó, đối tượng sẽ chết, hoặc ít ra
+cũng coi như chết.</p>
+
+<p>Tại sao khi không còn một biến tham chiếu nào chiếu tới thì đối tượng sẽ chết?
+Câu trả lời rất đơn giản: Không có tham chiếu, ta không thể với tới đối tượng đó,
+không thể lấy dữ liệu của nó, không thể yêu cầu nó làm gì. Nói cách khác, nó trở
+thành một khối bit vô dụng, sự tồn tại của nó không còn có ý nghĩa gì nữa. Garbage
+collector sẽ phát hiện ra những đối tượng ở tình trạng này và thu dọn vùng bộ nhớ
+của chúng để tái sử dụng.</p>
+
+<p>Như vậy, để có thể xác định độ dài cuộc đời hữu dụng của đối tượng, ta cần biết
+được độ dài cuộc đời của các biến tham chiếu. Cái này còn tùy biến đó là biến địa
+phương hay biến thực thể. Một biến địa phương chỉ tồn tại bên trong phương thức
+nơi nó được khai báo, và chỉ sống từ khi phương thức đó được chạy cho đến khi
+phương thức đó kết thúc. Một biến thực thể thuộc về một đối tượng và sống cùng
+với đối tượng đó. Nếu đối tượng vẫn còn sống thì biến thực thể của nó cũng vậy.</p>
+
+<p>Có ba cách hủy tham chiếu tới một đối tượng:</p>
+<ol>
+  <li>Tham chiếu vĩnh viễn ra ngoài phạm vi tồn tại.</li>
+  <img src="Chapter9_6_image1.png" alt="">
+  <li>Tham chiếu được chiếu tới một đối tượng khác.</li>
+  <img src="Chapter9_6_image2.png" alt="">
+  <li>Tham chiếu được gán giá trị null.</li>
+  <img src="Chapter9_6_image3.png" alt="">
+</ol>
+

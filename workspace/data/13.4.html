@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>13.4. ITERATOR VÀ VÒNG LẶP FOR EACH</title>
+</head>
+<body>
+    <h2>13.4. ITERATOR VÀ VÒNG LẶP FOR EACH</h2>
+    <p>Đôi khi, ta cần tự cài một số thuật toán tổng quát, chẳng hạn như in ra từng phần tử trong một collection. Để làm được việc đó một cách tổng quát, ta cần có cách nào đó để duyệt qua một collection tùy ý, lần lượt truy nhập từng phần tử của collection đó. Ta đã biết cách làm việc này đối với các cấu trúc dữ liệu cụ thể, chẳng hạn dùng vòng for duyệt qua tất cả các chỉ số của mảng. Đối với danh sách liên kết, ta có thể dùng vòng while đẩy dần một con trỏ dọc theo danh sách.</p>
+    <p>Các lớp collection có thể được cài bằng kiểu mảng, danh sách liên kết, hay một cấu trúc dữ liệu nào đó khác. Mỗi loại sử dụng những cơ chế duyệt khác nhau. Ta làm cách nào để có được một phương thức tổng quát chạy được cho các collection được lưu trữ theo các kiểu khác nhau? Giải pháp ở đây là các iterator. Một iterator là một đối tượng dùng để duyệt một collection. Các loại collection khác nhau có iterator được cài theo các cách khác nhau, nhưng tất cả các iterator đều được sử dụng theo cùng một cách. Một thuật toán dùng iterator để duyệt một collection là thuật toán tổng quát, vì nó có thể dùng cho kiểu collection bất kì. Đối với người mới làm quen với lập trình tổng quát, iterator có vẻ khá kì quặc, nhưng nó thực ra là một giải pháp đẹp cho một vấn đề rắc rối.</p>
+    <p>Collection&lt;T&gt; quy định một phương thức trả về một iterator cho một collection bất kì. Nếu coll là một collection, coll.iterator() trả về một iterator có thể dùng để duyệt collection đó. Ta có thể coi iterator là một dạng tổng quát hóa của con trỏ, nó xuất phát từ điểm đầu của collection và có thể di chuyển từ phần tử này sang phần tử khác cho đến khi đi hết collection. Iterator được định nghĩa trong interface có tham số kiểu Iterator&lt;T&gt;. Nếu coll cài interface Collection&lt;T&gt; với kiểu T cụ thể nào đó, thì coll.iterator() trả về một iterator cài interface Iterator&lt;T&gt; với cùng kiểu T đó. Iterator&lt;T&gt; quy định ba phương thức:</p>
+    <ul>
+        <li><strong>next():</strong> trả về phần tử tiếp theo (giá trị kiểu T) và tiến iterator một bước. Nếu phương thức này được gọi khi iterator đã đi đến hết collection, nó sẽ ném ngoại lệ NoSuchElementException.</li>
+        <li><strong>hasNext():</strong> trả về true nếu iterator chưa đi hết collection và vẫn còn phần tử để xử lý, trả về false trong tình huống ngược lại. Ta thường gọi phương thức này để kiểm tra trước khi gọi next()</li>
+        <li><strong>remove():</strong> xóa khỏi collection phần tử vừa được next() trả về, nói cách khác là phần tử hiện đang được iterator hiện hành chiếu tới. Phương thức này có thể ném UnsupportOperationException nếu collection này không cho phép xóa phần tử.</li>
+    </ul>
+    <img src="C131_4_img1.png" alt="" width="600" height="350">
+
+    <p>Lưu ý rằng khi Collection&lt;T&gt;, Iterator&lt;T&gt;, hay bất kì kiểu có tham số nào khác, được dùng trong mã thực sự, chúng luôn được dùng với các kiểu dữ liệu thực sự chẳng hạn như String, Integer hay Cow thay cho vị trí của tham số kiểu T. Một iterator kiểu Iterator&lt;String&gt; được dùng để duyệt qua một collection gồm các String; một iterator kiểu Iterator&lt;Cow&gt; được dùng để duyệt qua một collection gồm các đối tượng Cow, v.v..</p>
+</body>
+</html>

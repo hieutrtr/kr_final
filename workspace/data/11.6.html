@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>11.6. ĐỊNH NGHĨA KIỂU NGOẠI LỆ MỚI</title>
+</head>
+<body>
+    <h2>11.6. ĐỊNH NGHĨA KIỂU NGOẠI LỆ MỚI</h2>
+    <p>Thông thường, khi viết mã sử dụng các thư viện có sẵn, lập trình viên cần xử lý các ngoại lệ có sẵn mà các phương thức trong thư viện đó ném để tạo ra được những chương trình có khả năng chống chịu lỗi cao. Còn nếu ta viết các lớp để cho các lập trình viên khác sử dụng trong chương trình của họ, ta có thể cần định nghĩa các kiểu ngoại lệ đặc thù cho các sự cố có thể xảy ra khi các lớp này được dùng trong các chương trình khác.</p>
+
+    <p>Một lớp ngoại lệ mới cần phải là lớp chuyên biệt hóa của một lớp ngoại lệ có sẵn để loại ngoại lệ mới có thể dùng được với cơ chế xử lý ngoại lệ thông thường. Một lớp ngoại lệ điển hình chỉ chứa hai hàm khởi tạo, một hàm không lấy đối số và truyền một thông báo lỗi mặc định cho hàm khởi tạo của lớp cha, một hàm lấy một xâu kí tự là thông báo lỗi tùy chọn và truyền nó cho hàm khởi tạo của lớp cha.</p>
+
+    <p>Còn trong phần lớn các trường hợp, ta chỉ cần một lớp con rỗng với một cái tên thích hợp là đủ. Nên dành cho mỗi loại sự cố nghiêm trọng một lớp ngoại lệ được đặt tên thích hợp để tăng tính trong sáng của chương trình.</p>
+
+    <p>Nên chọn lớp ngoại lệ cơ sở là một lớp có liên quan. Ví dụ, nếu định tạo lớp ngoại lệ mới cho sự cố phép chia cho 0, ta có thể lấy lớp cha là lớp ngoại lệ cho tính toán số học là ArithmeticException. Nếu không có lớp ngoại lệ có sẵn nào thích hợp làm lớp cha, ta nên xét đến việc ngoại lệ mới nên thuộc loại được kiểm tra (checked) hay không (unchecked). Nếu cần bắt buộc chương trình sử dụng xử lý ngoại lệ, ta dùng loại được kiểm tra, nghĩa là là lớp con của Exception nhưng không phải lớp con của RuntimeException. Còn nếu có thể cho phép chương trình ứng dụng bỏ qua ngoại lệ này, ta chọn lớp cha là RuntimeException.</p>
+</body>
+</html>

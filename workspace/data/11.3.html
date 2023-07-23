@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>NÉM NGOẠI LỆ</title>
+</head>
+<body>
+    <h2>11.3. NÉM NGOẠI LỆ</h2>
+    <p>Nếu mã chương trình của ta phải bắt ngoại lệ, thì mã của ai ném nó? Các ví dụ ta đã dùng từ đầu chương đều nói về các tình huống mà ngoại lệ được ném từ bên trong một hàm trong thư viện. Ta gọi một phương thức có khai báo một loại ngoại lệ, và phương thức đó ném ngoại lệ trở lại đoạn chương trình gọi nó.</p>
+
+    <p>Trong thực tế, ta có thể phải viết cả mã ném ngoại lệ cũng như mã xử lý ngoại lệ. Vấn đề không phải ở chỗ ai viết cái gì, mà là biết rằng phương thức nào ném ngoại lệ và phương thức nào bắt nó.</p>
+
+    <p>Nếu viết một phương thức có thể ném một ngoại lệ, ta phải làm hai việc:</p>
+    <ol>
+        <li>Tuyên bố tại dòng khai báo phương thức rằng nó có thể ném loại ngoại lệ đó (dùng từ khóa <code>throws</code>);</li>
+        <li>Tạo một ngoại lệ và ném nó (bằng lệnh <code>throw</code>) tại tình huống thích hợp trong nội dung phương thức.</li>
+    </ol>
+
+    <img src="C111_3_img8.png" alt="" width="500" height="300">
+</body>
+</html>

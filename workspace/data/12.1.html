@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>12.1. QUY TRÌNH GHI ĐỐI TƯỢNG</title>
+</head>
+<body>
+    <h2>12.1. QUY TRÌNH GHI ĐỐI TƯỢNG</h2>
+    <p>Cách ghi đối tượng chuỗi hóa sẽ được trình bày một cách chi tiết sau. Tạm thời, ta chỉ giới thiệu các bước cơ bản:</p>
+    <!-- Add the image here -->
+    <img src="C121_1_img1.png" alt="" width="600" height="300">
+
+    <ol>
+        <li>
+            Bước 1: Tạo một dòng ra dạng file, FileOutputStream, đối tượng dòng ra này kết nối với file có tên 'game.dat', nếu chưa có file với tên đó thì nó sẽ tạo mới một file như vậy.
+        </li>
+        <li>
+            Bước 2: Tạo một đối tượng kiểu ObjectOutputStream – dòng ra cho dữ liệu dạng đối tượng. Nó cho phép ghi đối tượng nhưng nó lại không thể kết nối trực tiếp với một file. Vậy nên ta nối nó với đối tượng dòng ra dạng file để 'giúp đỡ' nó trong việc ghi ra file.
+        </li>
+        <li>
+            Bước 3: Chuỗi hóa các đối tượng mà zombie, peaShooter, và mushroom chiếu tới, rồi ghi nó ra file qua dòng ra os.
+        </li>
+        <li>
+            Bước 4: Đóng dòng ra dạng đối tượng. Khi đóng một dòng ra, dòng mà nó nối tới, ở đây là FileOutputStream, sẽ được đóng tự động. Việc ghi dữ liệu đến đây kết thúc.
+        </li>
+    </ol>
+
+    <p>Chúng ta đã nói đến các dòng, vậy bản chất chúng là cái gì? Có thể hình dung dòng (stream) như một đường ống mà dữ liệu di chuyển trong đó để đi từ nơi này sang nơi khác. Thư viện vào ra dữ liệu của Java có các dòng kết nối (connection stream) đại diện cho các kết nối tới các đích và các nguồn như các file hay socket mạng, và các dòng nối tiếp (chain stream) không thể kết nối với các đích và nguồn mà chỉ có thể chạy được nếu được nối với các dòng khác.</p>
+
+    <p>Thông thường, để làm việc gì đó, ta cần dùng ít nhất hai dòng nối với nhau: một dòng đại diện cho kết nối với nguồn hay đích của dữ liệu, dòng kia cung cấp tiện ích đọc/ghi. Lí do là dòng kết nối thường hỗ trợ ở mức quá thấp. Ví dụ, dòng kết nối FileOutputStream chỉ cung cấp các phương thức ghi byte. Còn ta không muốn ghi từng byte hoặc chuỗi byte. Ta muốn ghi đối tượng, do đó ta cần một dòng nối tiếp ở mức cao hơn, chẳng hạn ObjectOutputStream là dòng nối tiếp cho phép ghi đối tượng.</p>
+
+    <p>Khả năng lắp ghép các tổ hợp khác nhau của các dòng kết nối và các dòng nối tiếp mang lại cho ta khả năng linh hoạt. Ta có thể tự lắp ghép một chuỗi các dòng theo nhu cầu của ta chứ không phải đợi những người phát triển thư viện Java xây dựng cho ta một dòng chứa tất cả những gì ta muốn.</p>
+</body>
+</html>

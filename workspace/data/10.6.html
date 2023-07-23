@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Converted Text</title>
+</head>
+<body>
+
+<h2>10.6. THÀNH VIÊN BẤT BIẾN</h2> 
+
+<p>Trong ngôn ngữ Java, từ khóa final mang nghĩa "không thể thay đổi". Ta có thể dùng từ khóa này để quy định về tính chất không thể thay đổi cho biến, phương thức, và cả lớp:</p>
+
+<h4>1. Một biến final là biến không thể sửa giá trị.</h4>
+<p>Nói cách khác, biến final là hằng. Ta có biến static final là hằng của lớp, biến thực thể final là hằng của đối tượng. Biến địa phương, tham số cũng có thể được quy định là final. Trong ví dụ sau đây, 'cow' có nghĩa là 'bò cái' nên IS_FEMALE (là giống cái) là hằng mang giá trị true chung cho tất cả các đối tượng kiểu Cow, từng con bò không đổi màu nên color là một hằng cho từng đối tượng Cow.</p>
+
+<img src="10.6_img1.png" height="250">
+
+<h4>2. Một phương thức final là phương thức mà lớp con không thể cài đè.</h4>
+<img src="10.6_img2.png" height="90">
+
+<h4>3. Một lớp final là lớp không thể có lớp con.</h4>
+<img src="10.6_img3.png" height="70">
+<p>An toàn là lí do cho việc khai báo final. Ví dụ, nếu có ai đó viết lớp con của String và cài đè các phương thức, người ta có thể nhờ đa hình mà dùng các đối tượng thuộc lớp mới này cho các đoạn mã chương trình vốn được viết cho String. Đây là tình huống không được mong muốn, do đó String được đặt chế độ final để tránh xảy ra tình huống đó. Nếu ta cần dựa vào cài đặt cụ thể của các phương thức trong một lớp, hãy cho lớp đó ở dạng final. Nếu ta chỉ cần cố định cài đặt của một vài phương thức trong một lớp, ta đặt chế độ final cho các phương thức đó chứ không cần đặt cho cả lớp. Tất nhiên, nếu một lớp là lớp final thì các phương thức trong đó nghiễm nhiên không thể bị cài đè, ta không cần đặt chế độ final cho chúng nữa.</p>
+
+<h4>Những điểm quan trọng:</h4>
+<ul>
+    <li>Phương thức lớp hay còn gọi là phương thức static không được gắn với một đối tượng cụ thể nào và không phụ thuộc đối tượng nào, nó chỉ được gắn với lớp</li>
+    <li>Nên gọi phương thức static từ tên lớp.</li>
+    <li>Phương thức static có thể được gọi mà không cần có đối tượng nào của lớp đó đang ở trong heap.</li>
+    <li>Do không được gắn với một đối tượng nào, phương thức static không thể truy nhập biến thực thể hay các phương thức thực thể.</li>
+    <li>Biến lớp hay còn gọi là biến static là biến dùng chung cho tất cả các đối tượng của lớp. Chỉ có duy nhất một bản cho cả lớp, chứ không phải mỗi đối tượng có một bản.</li>
+    <li>Phương thức static có thể truy nhập biến static.</li>
+    <li>Biến final chỉ được gán trị một lần và không thể bị thay đổi.</li>
+    <li>Phương thức final không thể bị đè.</li>
+    <li>Lớp final không thể có lớp con.</li>
+</ul>
+
+</body>
+</html>

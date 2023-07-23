@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>13.6. KÍ TỰ ĐẠI DIỆN TRONG KHAI BÁO THAM SỐ KIỂU</title>
+</head>
+<body>
+    <h2>13.6. KÍ TỰ ĐẠI DIỆN TRONG KHAI BÁO THAM SỐ KIỂU</h2>
+    <p>Quan hệ thừa kế giữa hai lớp không có ảnh hưởng gì đến quan hệ giữa các cấu trúc tổng quát dùng cho hai lớp đó. Chẳng hạn, Dog và Cat là các lớp con của Animal, ta có thể đưa các đối tượng Dog và Cat vào một ArrayList&lt;Animal&gt;, và tính chất đa hình giữa Dog, Cat, và Animal vẫn hoạt động như bình thường (xem ví dụ trong Hình 13.12). Tuy nhiên, ArrayList&lt;Dog&gt;, ArrayList&lt;Cat&gt; lại không có quan hệ gì với ArrayList&lt;Animal&gt;. Vậy cho nên, nếu dùng một ArrayList&lt;Dog&gt; làm đối số cho phương thức yêu cầu đối số kiểu ArrayList&lt;Animal&gt;, như ví dụ trong Hình 13.13, trình biên dịch sẽ báo lỗi sai kiểu dữ liệu.</p>
+    <img src="C131_6_img1.png" alt="" width="650" height="850">
+
+    <p>Tóm lại, nếu ta khai báo một phương thức lấy đối số kiểu ArrayList&lt;Animal&gt;, nó sẽ chỉ có thể lấy đối số kiểu ArrayList&lt;Animal&gt; chứ không thể lấy kiểu ArrayList&lt;Dog&gt; hay ArrayList&lt;Cat&gt;.</p>
+
+    <p>Vậy làm thế nào để làm cho một phương thức có thể nhận đối số thuộc kiểu ArrayList&lt;Dog&gt;, ArrayList&lt;Cat&gt;,...nghĩa là ArrayList dành cho kiểu bất kì là lớp con của Animal? Giải pháp là sử dụng kí tự đại diện (wildcard).</p>
+    <img src="C131_6_img2.png" alt="" width="900" height="200">
+
+    <p>? extends Animal có nghĩa là kiểu gì đó thuộc loại Animal. Nhớ rằng từ khóa extends ở đây có nghĩa "là lớp con của" hoặc "cài đặt", tùy vào việc theo sau từ khóa extends là tên một lớp hay tên một interface.</p>
+
+    <p>Khi ta dùng kí tự đại diện &lt;?&gt; tại khai báo, trình biên dịch sẽ không cho ta thêm cái gì vào trong danh sách mà tham số của phương thức chiếu tới. Ta có thể gọi phương thức của các phần tử trong danh sách, nhưng ta không thể thêm phần tử mới vào danh sách. Do đó, ta có thể yên tâm khi chương trình chạy. Ví dụ, makeASymphony() với nội dung ở trên thì không gặp lỗi biên dịch, nhưng takeAnimals() với nội dung như trong Hình 13.14 sẽ không biên dịch được.</p>
+
+    <p>Hai cú pháp sau là tương đương:</p>
+    <p>public void foo( ArrayList&lt;? extends Animal&gt; a)</p>
+    <p>public &lt;T extends Animal&gt; void foo( ArrayList&lt;T&gt; a)</p>
+    <p>Cách thứ hai, dùng "T", thường được sử dụng khi ta còn muốn T xuất hiện ở các vị trí khác. Ví dụ, cách viết sau quá dài:</p>
+    <p>public void bar( ArrayList&lt;? extends Animal&gt; a1, ArrayList&lt;? extends Animal&gt; a2)</p>
+    <p>thay vào đó, ta viết:</p>
+    <p>public &lt;T extends Animal&gt; void bar(ArrayList&lt;T&gt; a1 , ArrayList&lt;T&gt; a2)</p>
+</body>
+</html>

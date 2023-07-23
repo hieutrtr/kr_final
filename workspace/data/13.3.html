@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>13.3. CÁC CẤU TRÚC DỮ LIỆU TỔNG QUÁT TRONG JAVA API</title>
+</head>
+<body>
+    <h2>13.3. CÁC CẤU TRÚC DỮ LIỆU TỔNG QUÁT TRONG JAVA API</h2>
+    <p>ArrayList chỉ là một trong nhiều lớp thuộc thư viện chuẩn Java được dùng cho lập trình tổng quát. Bên cạnh đó còn có những lớp thông dụng khác biểu diễn các cấu trúc dữ liệu quan trọng. Ví dụ, LinkedList là danh sách liên kết, TreeSet là cấu trúc tập hợp luôn giữ tình trạng các phần tử không trùng lặp và được sắp thứ tự, HashMap cho phép lưu trữ dữ liệu ở dạng các cặp khóa-giá trị, HashSet là cấu trúc tập hợp cho phép tra cứu nhanh, v.v... Mục này trình bày về cách sử dụng bộ các cấu trúc tổng quát này của Java.</p>
+    <p>Các cấu trúc dữ liệu tổng quát của Java có thể được chia thành hai thể loại: các lớp collection và các lớp map. Một collection là một bộ các đối tượng. Một map liên kết các đối tượng thuộc một tập hợp với các đối tượng thuộc một tập hợp khác, tương tự như một từ điển là một loạt các liên kết giữa các định nghĩa và các từ, hay danh bạ điện thoại liên kết các số điện thoại với các cái tên. Có thể coi một map như là một danh sách liên kết (association list). Các lớp collection và các lớp map được đại diện bởi hai interface có tham số kiểu: Collection&lt;T&gt; và Map&lt;T,S&gt;. Trong đó, T và S có thể đại diện cho bất cứ kiểu dữ liệu nào ngoại trừ các kiểu cơ bản.</p>
+    <p>Có hai loại collection: List và Set. List (danh sách) là loại collection mà trong đó các đối tượng được xếp thành một chuỗi tuyến tính. Một danh sách có phần tử thứ nhất, thứ hai, v.v.. Với mỗi phần tử trong danh sách, trừ phần tử cuối cùng, đều có một phần tử đứng sau nó. Set (tập hợp) là loại collection mà trong đó không có đối tượng nào xuất hiện nhiều hơn một lần. Các lớp loại List và Set được đại diện bởi hai interface List&lt;T&gt; và Set&lt;T&gt;, chúng là các interface con của interface Collection&lt;T&gt;.</p>
+    <img src="C131_3_img1.png" alt="" width="600" height="350">
+
+    <p>Hình 13.5 mô tả quan hệ giữa các lớp và interface của Collection API. Hình này không liệt kê đầy đủ các lớp trong Collection API mà chỉ liệt kê một số lớp/interface quan trọng. Lưu ý rằng Map (ánh xạ) không thừa kế từ Collection, nhưng Map vẫn được coi là một phần của Collection API. Do đó, ta vẫn coi mỗi đối tượng kiểu Map là một collection.</p>
+
+    <p>Mỗi đối tượng collection, danh sách hay tập hợp, phải thuộc về một lớp cụ thể cài đặt interface tương ứng. Chẳng hạn, lớp ArrayList&lt;T&gt; cài đặt interface List&lt;T&gt;, và do đó cài đặt cả Collection&lt;T&gt;.</p>
+
+    <p>Interface Collection&lt;T&gt; đặc tả các phương thức thực hiện một số chức năng cơ bản đối với collection bất kì. Do collection là một khái niệm rất chung chung, các chức năng đó cũng tổng quát để có thể áp dụng cho nhiều kiểu collection chứa các loại đối tượng khác nhau. Một số chức năng chính:</p>
+    <ul>
+        <li>size() trả về số đối tượng hiện có trong collection</li>
+        <li>isEmpty() kiểm tra xem collection có rỗng không</li>
+        <li>clear() xóa rỗng collection</li>
+        <li>add(), addAll() thêm đối tượng vào collection</li>
+        <li>remove(), removeAll() xóa đối tượng khỏi collection</li>
+        <li>contains(), containsAll() kiểm tra xem một/vài đối tượng có nằm trong collection hay không</li>
+        <li>toArray() trả về một mảng Object chứa tất cả các đối tượng chứa trong collection.</li>
+    </ul>
+</body>
+</html>

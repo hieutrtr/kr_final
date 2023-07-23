@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>11.5. NGOẠI LỆ ĐƯỢC KIỂM TRA VÀ KHÔNG ĐƯỢC KIỂM TRA</title>
+</head>
+<body>
+    <h2>11.5. NGOẠI LỆ ĐƯỢC KIỂM TRA VÀ KHÔNG ĐƯỢC KIỂM TRA</h2>
+    <p>Các kiểu ngoại lệ của Java được chia thành hai loại: được kiểm tra (checked) và không được kiểm tra (unchecked) bởi trình biên dịch.</p>
+
+    <p>Loại không được kiểm tra bao gồm các đối tượng thuộc lớp RuntimeException và các lớp con của nó, chẳng hạn NullPointerException, ArrayIndexOutOfBoundException, InputMismatchException hay ArithmeticException (như trong ví dụ Hình 11.1)... Với những ngoại lệ loại không được kiểm tra, trình biên dịch không quan tâm ai tuyên bố ném, ai ném, và có ai bắt hay không. Tất cả trách nhiệm thuộc về người lập trình.</p>
+
+    <p>Loại được kiểm tra bao gồm ngoại lệ thuộc tất cả các lớp còn lại, nghĩa là các lớp không thuộc loại RuntimeException và các lớp con của nó. Loại được kiểm tra được trình biên dịch kiểm tra xem đã được xử lý trong mã hay chưa.</p>
+
+    <p>Hầu hết các ngoại lệ thuộc loại RuntimeException xuất phát từ một vấn đề trong lô-gic chương trình của ta chứ không phải từ một sự cố xảy ra trong khi chương trình chạy mà ta không thể lường trước hoặc đề phòng. Ta không thể đảm bảo rằng một file cần mở chắc chắn có ở đó để ta dùng. Ta không thể đảm bảo rằng server sẽ chạy ổn định đúng vào lúc ta cần. Nhưng ta có thể đảm bảo rằng chương trình của ta sẽ không dùng chỉ số quá lớn truy nhập vượt ra ngoài mảng (mảng thuộc tính .length để ta kiểm soát việc này).</p>
+
+    <p>Hơn nữa, ta muốn rằng các lỗi run-time phải được phát hiện và sửa chữa ngay trong thời gian phát triển và kiểm thử phần mềm. Ta không muốn viết thêm những khối try/catch kèm theo sự trả giá về hiệu năng không cần thiết để bắt những lỗi mà đáng ra không nên xảy ra, đáng ra phải được loại bỏ trước khi chương trình được đưa vào sử dụng.</p>
+
+    <p>Mục đích sử dụng của các khối try/catch là để xử lí các tình huống bất thường chứ không phải để khắc phục lỗi trong mã của lập trình viên. Hãy dùng các khối catch để cố gắng khắc phục sự cố của các tình huống mà ta không thể đảm bảo sẽ thành công. Ít nhất, ta cũng có thể in ra một thông điệp cho người dùng và thông tin về dấu vết của ngoại lệ trong ngăn xếp các lời gọi phương thức (stack trace) để ai đó có thể hiểu được chuyện gì đã xảy ra.</p>
+</body>
+</html>

@@ -1,0 +1,4 @@
+<h2>9.4. HÀM KHỞI TẠO CHỒNG NHAU</h3>
+<p>Xét trường hợp ta có các hàm khởi tạo chồng với hoạt động khởi tạo giống nhau và chỉ khác nhau ở phần xử lý các kiểu đối số. Ta sẽ không muốn chép đi chép lại phần mã khởi tạo mà các hàm khởi tạo đều có (vì khó bảo trì chẳng hạn), nên ta sẽ muốn đặt toàn bộ phần mã đó vào chỉ một trong các hàm khởi tạo. Và ta muốn rằng hàm khởi tạo nào cũng đều gọi đến hàm khởi tạo kia để nó hoàn thành công việc khởi tạo. Để làm việc đó, ta dùng <code>this()</code> để gọi một hàm khởi tạo từ bên trong một hàm khởi tạo khác của cùng một lớp. Ví dụ:</p>
+<img src="Chapter9_4_image1.png" alt="">
+<p>Lời gọi <code>this()</code> chỉ có thể được dùng trong hàm khởi tạo và phải là lệnh đầu tiên trong thân hàm. Nhớ lại mục 9.3, yêu cầu cho lời gọi <code>super()</code> cũng y hệt như vậy. Vì lí do đó, mỗi hàm khởi tạo chỉ được chọn một trong hai việc: gọi <code>super()</code> hoặc gọi <code>this()</code>, chứ không thể gọi cả hai.</p>

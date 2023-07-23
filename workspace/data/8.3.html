@@ -1,0 +1,35 @@
+<p>
+8.3. PHƯƠNG THỨC TRỪU TƯỢNG
+Không chỉ lớp, ta còn có thể khai báo các phương thức trừu tượng. Một lớp trừu
+tượng có nghĩa phải tạo lớp con cho nó; còn một phương thức trừu tượng có nghĩa
+rằng nó phải được cài đè.
+Ta có thể quy định rằng một vài (hoặc tất cả) các hành vi của một lớp trừu tượng
+phải được cài đặt bởi một lớp con có tính đặc trưng hơn, nếu không các hành vi đó
+là vô nghĩa. Nói cách khác, ta không thể nghĩ ra một cài đặt tổng quát nào cho
+phương thức đó mà có thể hữu ích cho các lớp con. Một phương thức makeNoise()
+tổng quát sẽ làm gì?
+Cú pháp Java quy định rằng phương thức trừu tượng không có thân phương
+thức. Dòng khai báo phương thức kết thúc tại dấu chấm phảy và không có cặp ngoặc
+{ }.
+<code>public abstract void makeNoise();</code>
+Nếu ta khai báo một phương thức là abstract, ta phải đánh dấu lớp đó cũng là
+abstract. Ta không thể đặt một phương thức trừu tượng ở bên trong một lớp cụ thể.
+Tuy nhiên, ta có thể có phương thức không trừu tượng bên trong một lớp trừu
+tượng.
+Các phương thức trừu tượng phải được cài đè tại một lớp con. Các phương thức
+trừu tượng không có nội dung, nó tồn tại chỉ để phục vụ cơ chế đa hình. Điều đó có
+nghĩa rằng lớp cụ thể đầu tiên nằm dưới nó trên cây phả hệ bắt buộc phải cài tất cả
+các phương thức trừu tượng; các lớp con trừu tượng có thể bỏ qua việc này.
+Ví dụ, nếu cả Animal và Canine đều trừu tượng và cùng có các phương thức
+trừu tượng, lớp Canine không buộc phải cài các phương thức trừu tượng của
+Animal. Nhưng ngay khi ta đi xuống đến lớp con cụ thể đầu tiên, chẳng hạn Dog,
+lớp đó sẽ phải cài tất cả các phương thức trừu tượng thừa kế từ Animal và Canine.
+Tuy nhiên, nhớ lại rằng một lớp trừu tượng có thể chứa cả các phương thức trừu
+tượng cũng như cụ thể, cho nên Canine chẳng hạn có thể cài một phương thức trừu
+tượng thừa kế từ Animal, dẫn tới Dog không phải làm việc này nữa. Còn nếu Canine
+không cài phương thức trừu tượng nào từ Animal, Dog sẽ phải cài tất cả các phương
+thức trừu tượng của Animal cũng nhưng những phương thức trừu tượng mà Canine
+bổ sung. Khi ta nói "cài đặt phương thức trừu tượng", điều đó có nghĩa ta cài đè
+phương thức đó với một thân hàm để có một phiên bản cụ thể của phương thức đó
+(tất nhiên ở phiên bản mới không có từ khóa abstract trong khai báo).</p>
+

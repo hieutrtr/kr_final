@@ -1,0 +1,54 @@
+<p>
+8.4. VÍ DỤ VỀ ĐA HÌNH
+Giả sử ta muốn viết một lớp danh sách để quản lí các đối tượng Dog mà không
+dùng đến các cấu trúc danh sách có sẵn trong thư viện Java. Bước đầu, ta chỉ cần
+một phương thức <code>add()</code> để đưa các đối tượng Dog vào danh sách. Ta dùng một
+mảng Dog đơn giản với kích thước 5 để lưu các đối tượng Dog được đưa vào danh
+sách. Khi trong danh sách đã đủ 5 đối tượng, ta vẫn có thể tiếp tục gọi phương thức
+<code>add()</code> nhưng nó sẽ không làm gì. Nếu chưa đủ 5, phương thức <code>add()</code> sẽ gắn đối
+tượng tiếp theo vào vị trí tiếp theo còn trống rồi tăng chỉ số của vị trí tiếp theo còn
+trống (nextIndex) thêm 1.</p>
+<img src="Chapter8_4_image1.png" alt="">
+<p>
+Nhưng nếu ta còn muốn quản lí cả mèo lẫn chó trong danh sách? Có một vài lựa
+chọn. Thứ nhất: viết thêm lớp <code>MyCatList</code> dành riêng cho các đối tượng Cat. Thứ hai:
+viết một lớp <code>DogAndCatList</code> chung, trong đó có hai mảng, một dành cho các đối
+tượng Dog, một dành cho các đối tượng Cat. Thứ ba: viết một lớp <code>AnimalList</code> trong
+đó có thể chấp nhận các đối tượng thuộc lớp con bất kì của Animal (phòng trường
+hợp đặc tả lại thay đổi để yêu cầu nhận thêm các loài vật khác). Lựa chọn thứ ba gọn
+gàng và có khả năng mở rộng cao nhất nên ta sẽ dùng cho phiên bản thứ hai. Ta sẽ
+sửa lớp <code>MyDogList</code>, tổng quát hóa nó để chấp nhận các lớp con bất kì của Animal
+thay vì chỉ Dog. Lô-gic chương trình vẫn giữ nguyên như cũ, chỉ có các thay đổi
+được đánh đậm trong đoạn mã dưới đây:</p>
+<img src="Chapter8_4_image2.png" alt="">
+<p>
+Ta lại lấy ví dụ <em>Shape</em> đã nói đến ở đầu chương. Lớp cha tổng quát <em>Shape</em> nên là
+lớp trừu tượng do ứng dụng không cần và không nên tạo đối tượng <em>Shape</em>. Ngoài ra,
+các phương thức <em>draw</em> và <em>erase</em> của lớp này cũng nên là phương thức trừu tượng do
+ta không thể nghĩ ra nội dung gì hữu ích cho chúng. Các lớp con cụ thể, <em>Point</em>,
+<em>Circle</em>, <em>Rectangle</em>, và các lớp mà sau này sẽ bổ sung vào thư viện khi cần, sẽ định
+nghĩa các phiên bản với nội dung riêng cụ thể phù hợp với chính mình. Chẳng hạn
+như ví dụ trong Hình 8.2.</p>
+<img src="Chapter8_4_image3.png" alt="">
+<img src="Chapter8_4_image4.png" alt="">
+<p>
+Khác với <em>draw</em> và <em>erase</em>, <em>moveTo</em> lại là phương thức có thể định nghĩa ngay tại
+lớp <em>Shape</em>. Thuật toán ba bước cho <em>moveTo</em> là như nhau cho mọi hình: (1) xóa tại vị
+trí hiện hành, (2) sửa tọa độ hình, (3) vẽ tại vị trí mới, mặc dù xóa như thế nào và vẽ
+như thế nào là tùy theo từng loại hình cụ thể. Hiệu ứng đa hình cho phép <em>moveTo</em>
+dùng đến các phiên bản <em>draw</em> và <em>erase</em> khác nhau tùy theo nó được gọi cho đối
+tượng thuộc loại hình nào. Khi thư viện được bổ sung thêm các lớp đặc tả các loại
+hình khác, ta chỉ phải cài <em>draw</em> và <em>erase</em> cho loại hình đó mà không phải làm thêm gì
+cho các phương thức biến đổi hình có quy trình chung đã được định nghĩa sẵn
+tương tự như <em>moveTo</em>.
+</p>
+<p>
+Ví dụ này cũng minh họa một mẫu thiết kế có tên <em>Template Method</em> (phương
+thức khuôn mẫu). Xem Hình 8.3. Ở đây, <em>Shape</em> là lớp trừu tượng (<em>AbstractClass</em>) định
+nghĩa một phương thức khuôn mẫu <em>moveTo</em>, và quy định hai thao tác cơ bản
+(<em>PrimitiveOperation</em>) là <em>erase</em> và <em>draw</em> mà phương thức khuôn mẫu dùng đến. <em>Circle</em>
+là lớp con cụ thể (<em>ConcreteClass</em>), nó cài đặt các thao tác cơ bản này. Đây là một
+trong những mẫu thiết kế thông dụng nhất.
+</p>
+
+<img src="Chapter8_4_image5.png" alt="">

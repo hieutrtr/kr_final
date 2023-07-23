@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Converted Text</title>
+</head>
+<body>
+
+<h2>10.5. MẪU THIẾT KẾ SINGLETON</h2> 
+
+<p>Một ứng dụng của các thành viên lớp là mẫu thiết kế Singleton. Mẫu này giải quyết bài toán thiết kế đảm bảo rằng một lớp chỉ có tối đa một thực thể, chẳng hạn như trong một hệ thống mà chỉ nên có một đối tượng quản lý cửa sổ ứng dụng, một hệ thống file, hay chỉ một đối tượng quản lý hàng đợi máy in (printer spooler). Các lớp singleton thường được dùng cho việc quản lý tập trung tài nguyên và cung cấp một điểm truy nhập toàn cục duy nhất đến thực thể duy nhất của chúng.</p>
+<p>Mẫu Singleton bao gồm một lớp tự chịu trách nhiệm tạo thực thể. Phương thức khởi tạo được đặt chế độ private để ngăn cản việc tạo thực thể từ bên ngoài lớp. Một biến lớp private giữ tham chiếu tới thực thể duy nhất. Lớp cung cấp điểm truy nhập toàn cục tới thực thể này qua một phương thức lớp public trả về tham chiếu tới thực thể đó. Hình 10.5 mô tả chi tiết về mẫu Singleton. Để ý rằng do hàm khởi tạo không thể được truy cập từ bên ngoài nên phương thức lớp getInstance() là cổng duy nhất cho phép lấy tham chiếu tới đối tượng Singleton. Phương thức này đảm bảo rằng chỉ có duy nhất một thực thể Singleton được tạo. Từ bên ngoài lớp Singleton, mỗi khi muốn dùng đến thực thể Singleton này, ta chỉ cần thực hiện lời gọi có dạng như sau:</p>
+<p><code>Singleton.getInstance().doSomething();</code></p>
+<p>Người đọc có thể tìm hiểu thêm về mẫu thiết kế này và các ứng dụng của nó tại các tài liệu sau:</p>
+
+<ul>
+    <li>Erich Gamma, Richard Helm, Ralph Johnson and John Vlissides, Design Patterns: Elements of Reusable Object-Oriented Software, Addison-Wesley, 1994.</li>
+    <li>SingletonPattern | Object Oriented Design, URL: http://www.oodesign.com/singleton-pattern.html</li>
+</ul>
+
+<img src="10.5_img1.png" width="700">
+<p>Hình 10.5: Mẫu thiết kế Singleton.</p>
+
+</body>
+</html>
