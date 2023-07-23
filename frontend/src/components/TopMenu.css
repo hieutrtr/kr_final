@@ -12,3 +12,8 @@
 .menu-item:hover {
   color: #666;
 }
+
+.selected {
+  color: #fff;
+  background-color: #333;
+}
