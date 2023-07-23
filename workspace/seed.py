@@ -21,21 +21,45 @@ sections  = [
   {"id": 10, "title": "Chương 11", "type": "chapter"},
   {"id": 11, "title": "Chương 12", "type": "chapter"},
   {"id": 12, "title": "Chương 13", "type": "chapter"},
-  {"id": 13, "title": "Khái niệm 1", "type": "definition"},
-  {"id": 14, "title": "Khái niệm 2", "type": "definition"},
-  {"id": 15, "title": "Khái niệm 3", "type": "definition"},
-  {"id": 16, "title": "Khái niệm 4", "type": "definition"},
-  {"id": 17, "title": "Khái niệm 5", "type": "definition"},
-  {"id": 18, "title": "Tính chất 1", "type": "concept"},
-  {"id": 19, "title": "Tính chất 2", "type": "concept"},
-  {"id": 20, "title": "Tính chất 3", "type": "concept"},
-  {"id": 21, "title": "Tính chất 4", "type": "concept"},
-  {"id": 22, "title": "Tính chất 5", "type": "concept"},
-  {"id": 23, "title": "Bài tập 1", "type": "exercise"},
-  {"id": 24, "title": "Bài tập 2", "type": "exercise"},
-  {"id": 25, "title": "Bài tập 3", "type": "exercise"},
-  {"id": 26, "title": "Bài tập 4", "type": "exercise"},
-  {"id": 27, "title": "Bài tập 5", "type": "exercise"},
+  {"id": 13, "title": "Chương 1", "type": "definition"},
+  {"id": 14, "title": "Chương 2", "type": "definition"},
+  {"id": 15, "title": "Chương 3", "type": "definition"},
+  {"id": 16, "title": "Chương 4", "type": "definition"},
+  {"id": 17, "title": "Chương 5", "type": "definition"},
+  {"id": 18, "title": "Chương 6", "type": "definition"},
+  {"id": 19, "title": "Chương 7", "type": "definition"},
+  {"id": 20, "title": "Chương 8", "type": "definition"},
+  {"id": 21, "title": "Chương 9", "type": "definition"},
+  {"id": 22, "title": "Chương 10", "type": "definition"},
+  {"id": 23, "title": "Chương 11", "type": "definition"},
+  {"id": 24, "title": "Chương 12", "type": "definition"},
+  {"id": 25, "title": "Chương 13", "type": "definition"},
+  {"id": 26, "title": "Chương 1", "type": "concept"},
+  {"id": 27, "title": "Chương 2", "type": "concept"},
+  {"id": 28, "title": "Chương 3", "type": "concept"},
+  {"id": 29, "title": "Chương 4", "type": "concept"},
+  {"id": 30, "title": "Chương 5", "type": "concept"},
+  {"id": 31, "title": "Chương 6", "type": "concept"},
+  {"id": 32, "title": "Chương 7", "type": "concept"},
+  {"id": 33, "title": "Chương 8", "type": "concept"},
+  {"id": 34, "title": "Chương 9", "type": "concept"},
+  {"id": 35, "title": "Chương 10", "type": "concept"},
+  {"id": 36, "title": "Chương 11", "type": "concept"},
+  {"id": 37, "title": "Chương 12", "type": "concept"},
+  {"id": 38, "title": "Chương 13", "type": "concept"},
+  {"id": 39, "title": "Chương 1", "type": "exercise"},
+  {"id": 40, "title": "Chương 2", "type": "exercise"},
+  {"id": 41, "title": "Chương 3", "type": "exercise"},
+  {"id": 42, "title": "Chương 4", "type": "exercise"},
+  {"id": 43, "title": "Chương 5", "type": "exercise"},
+  {"id": 44, "title": "Chương 6", "type": "exercise"},
+  {"id": 45, "title": "Chương 7", "type": "exercise"},
+  {"id": 46, "title": "Chương 8", "type": "exercise"},
+  {"id": 47, "title": "Chương 9", "type": "exercise"},
+  {"id": 48, "title": "Chương 10", "type": "exercise"},
+  {"id": 49, "title": "Chương 11", "type": "exercise"},
+  {"id": 50, "title": "Chương 12", "type": "exercise"},
+  {"id": 51, "title": "Chương 13", "type": "exercise"}
 ];
 
 
@@ -46,8 +70,8 @@ for section in sections:
     sections_collection.insert_one(section)
 
 # Seed chapter
-for i in range(1, 13):
-    for j in range(0, 10):
+for i in range(1, 14):
+    for j in range(0, 20):
         file = f"data/{i}.{j}.html"
         try:
             with open(file, 'r') as f:
@@ -55,6 +79,25 @@ for i in range(1, 13):
                 title = content.split('<h2>')[1].split('</h2>')[0]
                 content = content.split('<body>')[1].split('</body>')[0]
                 articles_collection.insert_one({"title": title, "content": content, "section_id": i - 1})
+        except Exception as e:
+            print(e)
+            print(f"Cannot process file {file}")
+
+# Seed definition
+for i in range(1, 14):
+    for j in range(0, 20):
+        file = f"data/kn_{i}.{j}.html"
+        try:
+            with open(file, 'r') as f:
+                content = f.read()
+                # title could be in h1 or h2 or h3 or h4
+                title = content.split('<h2>')[1].split('</h2>')[0] if len(content.split('<h2>')) > 1 \
+                    else content.split('<h1>')[1].split('</h1>')[0] if len(content.split('<h1>')) > 1 \
+                        else content.split('<h3>')[1].split('</h3>')[0] if len(content.split('<h3>')) > 1 \
+                            else content.split('<h4>')[1].split('</h4>')[0]
+                # title = content.split('<h2>')[1].split('</h2>')[0]
+                content = content.split('<body>')[1].split('</body>')[0]
+                articles_collection.insert_one({"title": title, "content": content, "section_id": i - 1 + 13})
         except Exception as e:
             print(e)
             print(f"Cannot process file {file}")
