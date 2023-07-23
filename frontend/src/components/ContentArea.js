@@ -6,8 +6,20 @@ import './ContentArea.css';
 import articlesMock from '../data/ArticlesMock';
 
 function ContentArea({ selectedArticleId, onArticleSelect }) {
-  const featuredArticles = articlesMock.filter(article => article.featured);
   // fetch articles by selectedArticleId 
+  const [featuredArticles, setFeaturedArticles] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:8000/articles/featured");
+        setFeaturedArticles(response.data);
+      } catch (error) {
+        console.error('Error fetching featured articles:', error);
+        throw error;
+      }
+    }
+    fetchData();
+  }, []);
   const [selectedArticle, setSelectedArticle] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
@@ -35,8 +47,7 @@ function ContentArea({ selectedArticleId, onArticleSelect }) {
           {featuredArticles.length > 0 ? (
             <div className="featured-articles featired-container">
               {featuredArticles.map((article, index) => (
-                <div key={article.id} onClick={() => onArticleSelect(article.section_id, article.id)} className={`featured-article ${index % 2 === 0 ? 'even' : 'odd'}`}>
-                  <h2>{article.title}</h2>
+                <div key={article.id} onClick={() => onArticleSelect(article.id)} className={`featured-article ${index % 2 === 0 ? 'even' : 'odd'}`}>
                   <div dangerouslySetInnerHTML={{ __html: article.content.substring(0, 200) }}></div>
                   <p className='click-read-more-text'>Click to read more</p>
                 </div>

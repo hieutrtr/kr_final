@@ -34,6 +34,10 @@ function App() {
           />
           <div className="content-area">
             <Routes>
+              <Route path="/" element={<ContentArea
+                selectedArticleId={selectedArticleId}
+                onArticleSelect={(articleId) => handleArticleSelect(articleId)}
+              />} />
               <Route path="/chapter" element={<ContentArea
                 selectedArticleId={selectedArticleId}
                 onArticleSelect={(articleId) => handleArticleSelect(articleId)}

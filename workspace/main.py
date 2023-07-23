@@ -7,16 +7,15 @@ import json
 
 ## allow all CORS
 from fastapi.middleware.cors import CORSMiddleware
-origins = [
-    "http://localhost:3000",
-]
 
 app = FastAPI()
 # CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # MongoDB connection
@@ -68,6 +67,17 @@ def create_article(article: Article):
     article_data = article.dict()
     articles_collection.insert_one(article_data)
     return {"message": "Article created successfully"}
+
+
+# get articles featured is true
+@app.get("/articles/featured")
+def get_featured_articles():
+    articles = articles_collection.find({})
+    articles = json.loads(dumps(articles))
+    for article in articles:
+        article["id"] = str(article["_id"]["$oid"])
+        del article["_id"]
+    return list(articles)
 
 @app.get("/articles/{article_id}")
 def get_article(article_id: str):
