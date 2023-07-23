@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Sidebar, Menu, SubMenu, MenuItem } from 'react-pro-sidebar';
-import sectionsMock from '../data/SectionsMock';
 import './SideBar.css';
 
 function SideBar({ onArticleSelect, selectedSectionType }) {
+  const [sections, setSections] = useState([]);
   const [filteredSections, setFilteredSections] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -15,18 +15,17 @@ function SideBar({ onArticleSelect, selectedSectionType }) {
     filterSections(query);
   };
 
-  const filterSections = (query) => {
-    let filteredSections = sectionsMock;
-
+  const filterSections = async (query) => {
     // Filter by search query
     if (query !== '') {
-      filteredSections = filteredSections.map(sec => {
+      const filteredSections = sections.map(sec => {
         const newArticles = sec.articles.filter(article => article.title.toLowerCase().includes(query.toLowerCase()));
         return { ...sec, articles: newArticles };
       });
+      setFilteredSections(filteredSections);
+    } else {
+      setFilteredSections(sections);
     }
-
-    setFilteredSections(filteredSections);
   };
 
   async function fetchSections(type) {
@@ -53,15 +52,16 @@ function SideBar({ onArticleSelect, selectedSectionType }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const sections = await fetchSections(selectedSectionType);
+        const res = await fetchSections(selectedSectionType);
         
-        const fetchArticlePromises = sections.map(async (section) => {
+        const fetchArticlePromises = res.map(async (section) => {
           const articles = await fetchArticles(section.id);
           return { ...section, articles: articles };
         });
         
-        const res = await Promise.all(fetchArticlePromises);
-        setFilteredSections(res);
+        const promises = await Promise.all(fetchArticlePromises);
+        setSections(promises);
+        setFilteredSections(promises);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
